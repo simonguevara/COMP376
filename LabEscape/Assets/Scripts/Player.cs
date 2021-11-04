@@ -6,9 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int playerSpeed;
 
-    private SpriteRenderer mSpriteRenderer;
     private Rigidbody2D playerRigidBody2D;
-
+    private SpriteRenderer mSpriteRenderer;
     private Animator mAnimator;
 
      // Invincibility timer
@@ -36,13 +35,32 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        mMoving = !Mathf.Approximately(horizontal, 0f) || !Mathf.Approximately(vertical, 0f);
-         if (mMoving && !mInvincible)
+        Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        playerRigidBody2D.velocity = direction.normalized * playerSpeed;
+
+
+        SetAnimatorToIdle();
+        if (direction.x > 0)
         {
-            playerRigidBody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * playerSpeed;
-            SetDirection(horizontal,vertical);
+            SetAnimatorToIdle();
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            mAnimator.SetBool("isMovingLeft", true);
+        }
+        else if (direction.x < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            SetAnimatorToIdle();
+            mAnimator.SetBool("isMovingLeft", true);
+        }
+        if (direction.y > 0)
+        {
+            SetAnimatorToIdle();
+            mAnimator.SetBool("isMovingUp", true);
+        }
+        else if (direction.y < 0)
+        {
+            SetAnimatorToIdle();
+            mAnimator.SetBool("isMovingDown", true);
         }
 
          if(mInvincible)
@@ -83,39 +101,12 @@ public class Player : MonoBehaviour
         }
     }
     
+       
 
-    
-    private void SetDirection(float horizontal, float vertical){
-        FaceDirection(horizontal < 0f ? Vector2.left : Vector2.right);
-        mVertical = false;
-        mHorizontal = false;
-        mUp = false;
-        if(vertical < 0f){
-            Debug.Log("Down");
-            mVertical = true;
-            mUp = false;
-        }
-        else if(vertical > 0f){
-            Debug.Log("Up");
-            mVertical = true;
-            mUp = true;
-        }
-        if(horizontal < 0f)
-        {
-            Debug.Log("Left");
-            mHorizontal = true;
-        }
-        else if(horizontal > 0f){
-            Debug.Log("Right");
-            mHorizontal = true;
-        }
-        if(Mathf.Abs(horizontal) > Mathf.Abs(vertical)){
-            mUp = false;
-        }
-
-    }
-
-    public bool isFlipped(){
-        return mSpriteRenderer.flipX;
+    private void SetAnimatorToIdle()
+    {
+        mAnimator.SetBool("isMovingLeft", false);
+        mAnimator.SetBool("isMovingUp", false);
+        mAnimator.SetBool("isMovingDown", false);
     }
 }
