@@ -10,15 +10,13 @@ public class Player : MonoBehaviour
     private SpriteRenderer mSpriteRenderer;
     private Animator mAnimator;
 
-     // Invincibility timer
+    // Invincibility timer
     float kInvincibilityDuration = 1.0f;
     float mInvincibleTimer;
     bool mInvincible;
 
     // Damage effects
-    float kDamagePushForce = 1.5f;
-
-   
+    float kDamagePushForce = 10.0f;
 
     private bool mMoving;
     private bool mVertical;
@@ -30,14 +28,16 @@ public class Player : MonoBehaviour
         playerRigidBody2D = GetComponent<Rigidbody2D>();
         mAnimator = GetComponent<Animator>();
         mSpriteRenderer = GetComponent<SpriteRenderer>();
-      
+
     }
 
     void Update()
     {
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        playerRigidBody2D.velocity = direction.normalized * playerSpeed;
-
+        if (!mInvincible)
+        {
+            playerRigidBody2D.velocity = direction.normalized * playerSpeed;
+        }
 
         SetAnimatorToIdle();
         if (direction.x > 0)
@@ -63,45 +63,38 @@ public class Player : MonoBehaviour
             mAnimator.SetBool("isMovingDown", true);
         }
 
-         if(mInvincible)
+        if (mInvincible)
         {
             mInvincibleTimer += Time.deltaTime;
-            if(mInvincibleTimer >= kInvincibilityDuration)
+            if (mInvincibleTimer >= kInvincibilityDuration)
             {
                 mInvincible = false;
                 mInvincibleTimer = 0.0f;
             }
         }
-        updateAnimator();
     }
 
-      private void FaceDirection(Vector2 direction)
+    private void FaceDirection(Vector2 direction)
     {
         // Flip the sprite
         mSpriteRenderer.flipX = direction == Vector2.right ? false : true;
     }
 
-      private void updateAnimator(){
-          mAnimator.SetBool("Vertical", mVertical);
-          mAnimator.SetBool("Horizontal", mHorizontal);
-          mAnimator.SetBool("Up", mUp);
-      } 
-
-      public void TakeDamage(int dmg)
+    public void TakeDamage(Vector2 direction, int dmg)
     {
-        if(!mInvincible)
-        {           
-            Vector2 forceDirection = new Vector2(Vector2.left.x, 1.0f) * kDamagePushForce;
+        if (!mInvincible)
+        {
+            Vector2 forceDirection = direction * kDamagePushForce;
             playerRigidBody2D.velocity = Vector2.zero;
             playerRigidBody2D.AddForce(forceDirection, ForceMode2D.Impulse);
             mInvincible = true;
             Health h = GetComponent<Health>();
             h.DamagePlayer(dmg);
-             Debug.Log("Hit");
+            Debug.Log("Hit");
         }
     }
-    
-       
+
+
 
     private void SetAnimatorToIdle()
     {

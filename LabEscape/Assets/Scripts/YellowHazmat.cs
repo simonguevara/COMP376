@@ -57,19 +57,19 @@ public class YellowHazmat : MonoBehaviour
         }
         else
         {
-            yellowHazmatRigidBody2D.velocity = new Vector2(0, 0);
+            yellowHazmatRigidBody2D.velocity = Vector2.zero;
             transform.GetChild(0).gameObject.SetActive(false);
             SetAnimatorToIdle();
         }
 
     }
 
-     void OnTriggerStay2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
-            Player p = col.GetComponent<Player>();
-            p.TakeDamage(10);
+            Player player = col.gameObject.GetComponent<Player>();
+            player.TakeDamage((target.transform.position - transform.position).normalized, 10);
         }
     }
     private void SetAnimatorToIdle()
