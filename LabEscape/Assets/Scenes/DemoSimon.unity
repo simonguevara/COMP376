@@ -123,6 +123,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &221649379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5022951006672850610, guid: 57fbd47c39d76cc4eab271f56a170e6e, type: 3}
+  m_PrefabInstance: {fileID: 2000122583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &221649385
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221649379}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cc3e84b79bc221448f2c10ba1dc698c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &806309500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,11 +2752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5022951006672850612, guid: 57fbd47c39d76cc4eab271f56a170e6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.85
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: 5022951006672850612, guid: 57fbd47c39d76cc4eab271f56a170e6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5022951006672850612, guid: 57fbd47c39d76cc4eab271f56a170e6e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2777,18 +2801,18 @@ PrefabInstance:
     - target: {fileID: 5022951006672850613, guid: 57fbd47c39d76cc4eab271f56a170e6e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 7369977544745746006, guid: c19f93552ed535441b842e17244a587f, type: 3}
     - target: {fileID: 5022951006672850613, guid: 57fbd47c39d76cc4eab271f56a170e6e, type: 3}
       propertyPath: m_Color.b
-      value: 0.7529412
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5022951006672850613, guid: 57fbd47c39d76cc4eab271f56a170e6e, type: 3}
       propertyPath: m_Color.g
-      value: 0.56885195
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5022951006672850613, guid: 57fbd47c39d76cc4eab271f56a170e6e, type: 3}
       propertyPath: m_Color.r
-      value: 0.12549017
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5022951006672850613, guid: 57fbd47c39d76cc4eab271f56a170e6e, type: 3}
       propertyPath: m_SortingLayer
