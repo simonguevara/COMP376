@@ -22,10 +22,12 @@ public class YellowHazmat : MonoBehaviour
         if (distance < followRange)
         {
             yellowHazmatRigidBody2D.velocity = (target.transform.position - transform.position).normalized * followSpeed;
+            transform.GetChild(0).gameObject.SetActive(true);
         }
         else
         {
             yellowHazmatRigidBody2D.velocity = new Vector2(0, 0);
+            transform.GetChild(0).gameObject.SetActive(false);
         }
 
     }
