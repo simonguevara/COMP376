@@ -1,3 +1,5 @@
 LabEscape/*
 !LabEscape/Assets
 !LabEscape/ProjectSettings
+*.meta
+!*.*.meta
