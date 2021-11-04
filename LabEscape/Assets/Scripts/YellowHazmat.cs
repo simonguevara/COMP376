@@ -54,13 +54,12 @@ public class YellowHazmat : MonoBehaviour
                     animator.SetBool("isMovingUp", true);
                 }
             }
-            animator.speed = 1;
         }
         else
         {
             yellowHazmatRigidBody2D.velocity = new Vector2(0, 0);
             transform.GetChild(0).gameObject.SetActive(false);
-            animator.speed = 0;
+            SetAnimatorToIdle();
         }
 
     }
