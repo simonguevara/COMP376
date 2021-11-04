@@ -31,4 +31,13 @@ public class YellowHazmat : MonoBehaviour
         }
 
     }
+
+     void OnTriggerStay2D(Collider2D col)
+    {
+        if(col.tag == "Player")
+        {
+            Player p = col.GetComponent<Player>();
+            p.TakeDamage(10);
+        }
+    }
 }

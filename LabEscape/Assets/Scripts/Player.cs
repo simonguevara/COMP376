@@ -11,6 +11,16 @@ public class Player : MonoBehaviour
 
     private Animator mAnimator;
 
+     // Invincibility timer
+    float kInvincibilityDuration = 1.0f;
+    float mInvincibleTimer;
+    bool mInvincible;
+
+    // Damage effects
+    float kDamagePushForce = 1.5f;
+
+   
+
     private bool mMoving;
     private bool mVertical;
     private bool mUp;
@@ -21,6 +31,7 @@ public class Player : MonoBehaviour
         playerRigidBody2D = GetComponent<Rigidbody2D>();
         mAnimator = GetComponent<Animator>();
         mSpriteRenderer = GetComponent<SpriteRenderer>();
+      
     }
 
     void Update()
@@ -28,10 +39,20 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         mMoving = !Mathf.Approximately(horizontal, 0f) || !Mathf.Approximately(vertical, 0f);
-         if (mMoving)
+         if (mMoving && !mInvincible)
         {
             playerRigidBody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * playerSpeed;
             SetDirection(horizontal,vertical);
+        }
+
+         if(mInvincible)
+        {
+            mInvincibleTimer += Time.deltaTime;
+            if(mInvincibleTimer >= kInvincibilityDuration)
+            {
+                mInvincible = false;
+                mInvincibleTimer = 0.0f;
+            }
         }
         updateAnimator();
     }
@@ -47,6 +68,20 @@ public class Player : MonoBehaviour
           mAnimator.SetBool("Horizontal", mHorizontal);
           mAnimator.SetBool("Up", mUp);
       } 
+
+      public void TakeDamage(int dmg)
+    {
+        if(!mInvincible)
+        {           
+            Vector2 forceDirection = new Vector2(Vector2.left.x, 1.0f) * kDamagePushForce;
+            playerRigidBody2D.velocity = Vector2.zero;
+            playerRigidBody2D.AddForce(forceDirection, ForceMode2D.Impulse);
+            mInvincible = true;
+            Health h = GetComponent<Health>();
+            h.DamagePlayer(dmg);
+             Debug.Log("Hit");
+        }
+    }
     
 
     
