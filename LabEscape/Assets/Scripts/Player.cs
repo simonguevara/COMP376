@@ -90,7 +90,6 @@ public class Player : MonoBehaviour
             mInvincible = true;
             Health h = GetComponent<Health>();
             h.DamagePlayer(dmg);
-            Debug.Log("Hit");
         }
     }
 
