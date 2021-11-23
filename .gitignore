@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 LabEscape/*
 !LabEscape/Assets
 !LabEscape/ProjectSettings
@@ -17,6 +18,8 @@ Demo/Library/Artifacts/92/92a39e6a19f0981a7a4e9ff67e73ba8c
 Demo/Library/Artifacts/c1/c1c6ff2068f75c098126a4554c8172d2
 Demo/Logs/AssetImportWorker0-prev.log
 =======
+=======
+>>>>>>> parent of cec0421 (Merge branch 'main' of https://github.com/simonguevara/COMP376)
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
@@ -77,4 +80,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+<<<<<<< HEAD
+>>>>>>> parent of cec0421 (Merge branch 'main' of https://github.com/simonguevara/COMP376)
+=======
 >>>>>>> parent of cec0421 (Merge branch 'main' of https://github.com/simonguevara/COMP376)
