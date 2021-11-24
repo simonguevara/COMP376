@@ -48,6 +48,11 @@ public class PlayerSam : MonoBehaviour
     public int dashCost = 1;
     private Vector3 dashDirection;
 
+    //Gun ability
+    [Header("Gun Settings")]
+    public float shootDelay = 0.2f;
+    public GameObject bulletPrefab;
+    
 
 
     void Start()
@@ -63,7 +68,11 @@ public class PlayerSam : MonoBehaviour
 
     private void Update()
     {
-        checkInputs();
+        if (!isStunned)
+        {
+            checkInputs();
+        }
+
         checkStatus();
     }
 
@@ -73,12 +82,6 @@ public class PlayerSam : MonoBehaviour
         {
             movement();
         }
-        
-
-        
-
-        
-
     }
 
 
@@ -101,6 +104,19 @@ public class PlayerSam : MonoBehaviour
             Debug.Log("Space input");
             startDash();
         }
+
+        if (Input.GetKeyDown("[1]"))
+        {
+            Debug.Log("Shoot input");
+            shoot();
+        }
+    }
+
+    private void shoot()
+    {
+        GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        //TO DO COntroller right joystick for direction  
+        newBullet.GetComponent<PlayerBullet>().setDirection(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
     }
 
     private void startDash()
