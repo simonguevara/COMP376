@@ -11,12 +11,12 @@ public class Player : MonoBehaviour
     private Animator mAnimator;
 
     // Invincibility timer
-    float kInvincibilityDuration = 1.0f;
+    float kInvincibilityDuration = 0.15f;
     float mInvincibleTimer;
     bool mInvincible;
 
     // Damage effects
-    float kDamagePushForce = 10.0f;
+    float kDamagePushForce = 75.0f;
 
     private bool mMoving;
     private bool mVertical;
@@ -80,14 +80,14 @@ public class Player : MonoBehaviour
         mSpriteRenderer.flipX = direction == Vector2.right ? false : true;
     }
 
-    public void TakeDamage(Vector2 direction, int dmg)
+    public void TakeDamage(Vector2 direction, int dmg, bool invicible)
     {
         if (!mInvincible)
         {
             Vector2 forceDirection = direction * kDamagePushForce;
             playerRigidBody2D.velocity = Vector2.zero;
             playerRigidBody2D.AddForce(forceDirection, ForceMode2D.Impulse);
-            mInvincible = true;
+            mInvincible = invicible;
             Health h = GetComponent<Health>();
             h.DamagePlayer(dmg);
         }

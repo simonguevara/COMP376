@@ -69,7 +69,7 @@ public class YellowHazmat : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Player player = col.gameObject.GetComponent<Player>();
-            player.TakeDamage((target.transform.position - transform.position).normalized, 10);
+            player.TakeDamage((target.transform.position - transform.position).normalized, 10, true);
         }
     }
     private void SetAnimatorToIdle()
