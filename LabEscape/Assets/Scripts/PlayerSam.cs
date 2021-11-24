@@ -52,6 +52,7 @@ public class PlayerSam : MonoBehaviour
     [Header("Gun Settings")]
     public float shootDelay = 0.2f;
     public GameObject bulletPrefab;
+    private bool isShootOnCD = false;
     
 
 
@@ -105,7 +106,7 @@ public class PlayerSam : MonoBehaviour
             startDash();
         }
 
-        if (Input.GetKeyDown("[1]"))
+        if (Input.GetKeyDown("[1]") && !isShootOnCD)
         {
             Debug.Log("Shoot input");
             shoot();
@@ -114,9 +115,16 @@ public class PlayerSam : MonoBehaviour
 
     private void shoot()
     {
+        isShootOnCD = true;
+        Invoke("shootOffCooldown", shootDelay);
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         //TO DO COntroller right joystick for direction  
         newBullet.GetComponent<PlayerBullet>().setDirection(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
+    }
+
+    private void shootOffCooldown()
+    {
+        isShootOnCD = false;
     }
 
     private void startDash()
