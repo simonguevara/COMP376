@@ -21,7 +21,7 @@ public class PlayerBullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        bulletRigidBody2D.velocity = speed * direction;
+        bulletRigidBody2D.velocity = speed * direction.normalized;
     }
 
     void OnTriggerEnter2D(Collider2D col)

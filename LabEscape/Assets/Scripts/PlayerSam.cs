@@ -2,10 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class PlayerSam : MonoBehaviour
 {
     [SerializeField] private int playerSpeed;
+    [SerializeField] private float controllerDeadzone = 0.1f;
+    [SerializeField] private float gamepadRotateSmoothing = 1000f;
+
+    [SerializeField] private bool isController = false;
+
+    private CharacterController CharacterController;
+    private PlayerControls playerControls;
+    private PlayerInput playerInput;
+
+    private Vector2 movement;
+    private Vector2 aim;
 
     private Rigidbody2D playerRigidBody2D;
     private SpriteRenderer mSpriteRenderer;
@@ -53,8 +66,23 @@ public class PlayerSam : MonoBehaviour
     public float shootDelay = 0.2f;
     public GameObject bulletPrefab;
     private bool isShootOnCD = false;
-    
 
+    private void Awake()
+    {
+        CharacterController = GetComponent<CharacterController>();
+        playerControls = new PlayerControls();
+        playerInput = GetComponent<PlayerInput>();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
 
     void Start()
     {
@@ -69,10 +97,7 @@ public class PlayerSam : MonoBehaviour
 
     private void Update()
     {
-        if (!isStunned)
-        {
-            checkInputs();
-        }
+        checkInputs();
 
         checkStatus();
     }
@@ -81,7 +106,8 @@ public class PlayerSam : MonoBehaviour
     {
         if (!isStunned)
         {
-            movement();
+            doMovement();
+            animate();
         }
     }
 
@@ -100,13 +126,21 @@ public class PlayerSam : MonoBehaviour
 
     private void checkInputs()
     {
-        if (Input.GetKeyDown("space"))
+        movement = playerControls.Controls.Movement.ReadValue<Vector2>();
+        aim = playerControls.Controls.Aim.ReadValue<Vector2>();
+
+        if (playerControls.Controls.Shoot.triggered)
+        {
+            Debug.Log("Pew pew!");
+        } 
+
+        if (Input.GetKeyDown("space") && !isStunned)
         {
             Debug.Log("Space input");
             startDash();
         }
 
-        if (Input.GetKeyDown("[1]") && !isShootOnCD)
+        if (Input.GetKeyDown("[1]") && !isShootOnCD && !isStunned)
         {
             Debug.Log("Shoot input");
             shoot();
@@ -137,7 +171,7 @@ public class PlayerSam : MonoBehaviour
             isDashing = true;
             energy -= dashCost;
             Invoke("stopDashing", dashTime);
-            dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            dashDirection = movement;
         }
     }
 
@@ -168,7 +202,7 @@ public class PlayerSam : MonoBehaviour
         }
     }
 
-    private void movement()
+    private void doMovement()
     {
         //Check for dash movement or normal movement
         if (!isDashing)
@@ -188,29 +222,40 @@ public class PlayerSam : MonoBehaviour
 
     private void normalMovement()
     {
-        Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        //Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if(Math.Abs(movement.x) >= controllerDeadzone || Math.Abs(movement.y) >= controllerDeadzone)
+        {
+            playerRigidBody2D.velocity = movement * playerSpeed;
+        }
+        else
+        {
+            playerRigidBody2D.velocity = Vector2.zero;
+        }
+        
+    }
 
-        playerRigidBody2D.velocity = direction.normalized * playerSpeed;
-
+    private void animate()
+    {
         SetAnimatorToIdle();
-        if (direction.x > 0)
+        //Debug.Log("aim:"+aim);
+        if (Math.Abs(aim.x) > controllerDeadzone)
         {
             SetAnimatorToIdle();
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             mAnimator.SetBool("isMovingLeft", true);
         }
-        else if (direction.x < 0)
+        else if (Math.Abs(aim.x) < controllerDeadzone)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             SetAnimatorToIdle();
             mAnimator.SetBool("isMovingLeft", true);
         }
-        if (direction.y > 0)
+        if (Math.Abs(aim.y) > controllerDeadzone)
         {
             SetAnimatorToIdle();
             mAnimator.SetBool("isMovingUp", true);
         }
-        else if (direction.y < 0)
+        else if (Math.Abs(aim.y) < controllerDeadzone)
         {
             SetAnimatorToIdle();
             mAnimator.SetBool("isMovingDown", true);
@@ -248,7 +293,7 @@ public class PlayerSam : MonoBehaviour
 
 
     //Methods for aquiring gadgets
-    private void findBoots()
+    private void getBoots()
     {
         hasBoots = true;
         //display dialogue or events
@@ -259,6 +304,6 @@ public class PlayerSam : MonoBehaviour
     }
     private void getShield()
     {
-
+        hasShield = true;
     }
 }
