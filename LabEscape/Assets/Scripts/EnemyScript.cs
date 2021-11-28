@@ -20,6 +20,7 @@ public class EnemyScript : MonoBehaviour
     {
         if(healthPoints <= 0)
         {
+            OnDeath();
             Destroy(gameObject);
         }
     }
@@ -38,5 +39,10 @@ public class EnemyScript : MonoBehaviour
     private void unstun()
     {
         isStunned = false;
+    }
+
+    private void OnDeath()
+    {
+        //TO DO : On death stufff
     }
 }
