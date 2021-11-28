@@ -6,7 +6,7 @@ public class PlayerBullet : MonoBehaviour
 {
 
     public Vector2 direction = new Vector2(0.0f,0.0f);
-    public float speed = 3.0f;
+    public float speed = 5.0f;
     public int damage = 1;
     private Rigidbody2D bulletRigidBody2D;
 

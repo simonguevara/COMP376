@@ -17,8 +17,8 @@ public class PlayerSam : MonoBehaviour
     private PlayerControls playerControls;
     private PlayerInput playerInput;
 
-    private Vector2 movement;
-    private Vector2 aim;
+    private Vector2 movement = Vector2.zero;
+    private Vector2 aim = Vector2.zero;
 
     private Rigidbody2D playerRigidBody2D;
     private SpriteRenderer mSpriteRenderer;
@@ -66,6 +66,7 @@ public class PlayerSam : MonoBehaviour
     public float shootDelay = 0.2f;
     public GameObject bulletPrefab;
     private bool isShootOnCD = false;
+    private bool isTriggerPressed = false;
 
     private void Awake()
     {
@@ -129,9 +130,19 @@ public class PlayerSam : MonoBehaviour
         movement = playerControls.Controls.Movement.ReadValue<Vector2>();
         aim = playerControls.Controls.Aim.ReadValue<Vector2>();
 
-        if (playerControls.Controls.Shoot.triggered)
+
+        //Trigger status
+        if (playerControls.Controls.Shoot.triggered && isTriggerPressed)
+            isTriggerPressed = false;
+        if(playerControls.Controls.Shoot.triggered && !isTriggerPressed)
+            isTriggerPressed = true;
+
+
+        if (isTriggerPressed && !isShootOnCD && !isStunned && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
         {
             Debug.Log("Pew pew!");
+            shoot();
+
         } 
 
         if (Input.GetKeyDown("space") && !isStunned)
@@ -153,7 +164,8 @@ public class PlayerSam : MonoBehaviour
         Invoke("shootOffCooldown", shootDelay);
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         //TO DO COntroller right joystick for direction  
-        newBullet.GetComponent<PlayerBullet>().setDirection(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
+        newBullet.GetComponent<PlayerBullet>().setDirection(aim.normalized);
+        
     }
 
     private void shootOffCooldown()
