@@ -25,6 +25,12 @@ public class PlayerSam : MonoBehaviour
     private Animator mAnimator;
 
     // Invincibility timer
+    [Header("Health")]
+    public int health = 10;
+    public int maxHealth = 10;
+
+
+    // Invincibility timer
     [Header("Hitstun/Invicibility")]
     float kInvincibilityDuration = 1.0f;
     float mInvincibleTimer;
@@ -68,7 +74,7 @@ public class PlayerSam : MonoBehaviour
     public float shootDelay = 0.2f;
     public GameObject bulletPrefab;
     private bool isShootOnCD = false;
-    public bool isTriggerPressed = false;
+    public bool isRightTriggerPressed = false;
 
     //Shield ability
     [Header("Shield Settings")]
@@ -76,6 +82,13 @@ public class PlayerSam : MonoBehaviour
     public int shieldEnergyCost = 3;
     public float shieldDuration = 1.5f;
     public GameObject shieldPrefab;
+
+    //EMP ability
+    [Header("EMPSettings")]
+    public bool isEMPCD = false;
+    public int EMPEnergyCost = 3;
+    public GameObject EMPPrefab;
+    public bool isLeftTriggerPressed = false;
 
     private void Awake()
     {
@@ -147,18 +160,28 @@ public class PlayerSam : MonoBehaviour
         movement = playerControls.Controls.Movement.ReadValue<Vector2>();
         aim = playerControls.Controls.Aim.ReadValue<Vector2>();
 
-
-        //Trigger status
-        if (playerControls.Controls.Shoot.triggered && isTriggerPressed)
-            isTriggerPressed = false;
-        if(playerControls.Controls.Shoot.triggered && !isTriggerPressed)
-            isTriggerPressed = true;
-
+        
+        //Right Trigger status
+        if (playerControls.Controls.Shoot.triggered && isRightTriggerPressed)
+            isRightTriggerPressed = false;
+        if(playerControls.Controls.Shoot.triggered && !isRightTriggerPressed)
+            isRightTriggerPressed = true;
+        /*
+        //Left Trigger status
+        if (playerControls.Controls.EMP.triggered && isLeftTriggerPressed)
+            isLeftTriggerPressed = false;
+        if (playerControls.Controls.EMP.triggered && !isLeftTriggerPressed)
+            isLeftTriggerPressed = true;
+        */
         //Debug.Log("playerControls.Controls.Shoot.triggered");
 
         if (!isStunned)
         {
-            if (isTriggerPressed && !isShootOnCD  && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            Debug.Log("RT:" + playerControls.Controls.Shoot.triggered);
+            Debug.Log("LT:" + playerControls.Controls.EMP.triggered);
+
+
+            if (isRightTriggerPressed && !isShootOnCD  && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
             {
                 Debug.Log("Pew pew!");
                 shoot();
@@ -172,11 +195,37 @@ public class PlayerSam : MonoBehaviour
 
             if (playerControls.Controls.Shield.triggered)
             {
-                Debug.Log("Space input");
+                Debug.Log("Shield");
                 shield();
             }
+
+            if (playerControls.Controls.EMP.triggered && !isEMPCD && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            {
+                Debug.Log("EMP");
+                EMP();
+            }
+
+
         }
         
+    }
+
+    private void EMP()
+    {
+        if(energy >= EMPEnergyCost)
+        {
+            GameObject newEMP = Instantiate(EMPPrefab, transform.position, Quaternion.identity);
+            newEMP.GetComponent<EMPScript>().setDirection(aim.normalized);
+            energy -= EMPEnergyCost;
+            isEMPCD = true;
+            Invoke("EMPOffCD", 0.5f);
+        }
+         
+    }
+
+    private void EMPOffCD()
+    {
+        isEMPCD = false;
     }
 
     private void shield()
@@ -328,6 +377,7 @@ public class PlayerSam : MonoBehaviour
             playerRigidBody2D.velocity = Vector2.zero;
             playerRigidBody2D.AddForce(forceDirection, ForceMode2D.Impulse);
             mInvincible = true;
+            health -= dmg;
             //Health h = GetComponent<Health>();
             //h.DamagePlayer(dmg);
         }

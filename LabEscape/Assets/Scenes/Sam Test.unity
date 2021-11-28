@@ -1710,10 +1710,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
-      propertyPath: isReflecting
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5022951006672850610, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
       propertyPath: m_Name
       value: Sam Player

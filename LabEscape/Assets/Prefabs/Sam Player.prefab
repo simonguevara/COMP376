@@ -187,6 +187,8 @@ MonoBehaviour:
   controllerDeadzone: 0.1
   gamepadRotateSmoothing: 1000
   isController: 0
+  health: 10
+  maxHealth: 10
   maxEnergy: 10
   energy: 10
   regenTimeStep: 1
@@ -196,8 +198,14 @@ MonoBehaviour:
   dashCost: 1
   shootDelay: 0.2
   bulletPrefab: {fileID: 244928184974310066, guid: 342948a23fca1424e9e2d356a044b588, type: 3}
-  isTriggerPressed: 0
-  isReflecting: 1
+  isRightTriggerPressed: 0
+  isReflecting: 0
+  shieldEnergyCost: 3
+  shieldDuration: 1.5
+  shieldPrefab: {fileID: 1603192055441278049, guid: 49d75dbc3940b684dab83f5e8eca3222, type: 3}
+  isEMPCD: 0
+  EMPEnergyCost: 3
+  EMPPrefab: {fileID: 7440714951494119661, guid: ce0256b9ebde0bf47a4489dba37db2ea, type: 3}
 --- !u!114 &1693397522
 MonoBehaviour:
   m_ObjectHideFlags: 0

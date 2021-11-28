@@ -57,6 +57,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""EMP"",
+                    ""type"": ""Button"",
+                    ""id"": ""2389d5b7-d729-4187-8125-9dfe378fc278"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -202,6 +210,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Shield"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38d7a042-4b2f-4f33-8b71-1df6db7473b6"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""EMP"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -237,6 +256,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Controls_Shoot = m_Controls.FindAction("Shoot", throwIfNotFound: true);
         m_Controls_Dash = m_Controls.FindAction("Dash", throwIfNotFound: true);
         m_Controls_Shield = m_Controls.FindAction("Shield", throwIfNotFound: true);
+        m_Controls_EMP = m_Controls.FindAction("EMP", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -291,6 +311,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Controls_Shoot;
     private readonly InputAction m_Controls_Dash;
     private readonly InputAction m_Controls_Shield;
+    private readonly InputAction m_Controls_EMP;
     public struct ControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -300,6 +321,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Controls_Shoot;
         public InputAction @Dash => m_Wrapper.m_Controls_Dash;
         public InputAction @Shield => m_Wrapper.m_Controls_Shield;
+        public InputAction @EMP => m_Wrapper.m_Controls_EMP;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -324,6 +346,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Shield.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnShield;
                 @Shield.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnShield;
                 @Shield.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnShield;
+                @EMP.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnEMP;
+                @EMP.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnEMP;
+                @EMP.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnEMP;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -343,6 +368,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Shield.started += instance.OnShield;
                 @Shield.performed += instance.OnShield;
                 @Shield.canceled += instance.OnShield;
+                @EMP.started += instance.OnEMP;
+                @EMP.performed += instance.OnEMP;
+                @EMP.canceled += instance.OnEMP;
             }
         }
     }
@@ -372,5 +400,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnShield(InputAction.CallbackContext context);
+        void OnEMP(InputAction.CallbackContext context);
     }
 }
