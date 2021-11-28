@@ -43,6 +43,7 @@ public class PlayerSam : MonoBehaviour
     private bool mHorizontal;
 
     //For gadget aquisition
+    [Header("Gadget Unlock")]
     private bool hasBoots = true;
     private bool hasShield = true;
     private bool hasGun = true;
@@ -70,7 +71,11 @@ public class PlayerSam : MonoBehaviour
     public bool isTriggerPressed = false;
 
     //Shield ability
+    [Header("Shield Settings")]
     public bool isReflecting = false;
+    public int shieldEnergyCost = 3;
+    public float shieldDuration = 1.5f;
+    public GameObject shieldPrefab;
 
     private void Awake()
     {
@@ -149,7 +154,7 @@ public class PlayerSam : MonoBehaviour
         if(playerControls.Controls.Shoot.triggered && !isTriggerPressed)
             isTriggerPressed = true;
 
-        Debug.Log("playerControls.Controls.Shoot.triggered");
+        //Debug.Log("playerControls.Controls.Shoot.triggered");
 
         if (!isStunned)
         {
@@ -164,8 +169,32 @@ public class PlayerSam : MonoBehaviour
                 Debug.Log("Space input");
                 startDash();
             }
+
+            if (playerControls.Controls.Shield.triggered)
+            {
+                Debug.Log("Space input");
+                shield();
+            }
         }
         
+    }
+
+    private void shield()
+    {
+        if (!isReflecting && energy >= shieldEnergyCost)
+        {
+            isReflecting = true;
+            Invoke("stopShielding", shieldDuration);
+            GameObject shield = Instantiate(shieldPrefab, transform.position + new Vector3(0.0f, 0.01f, 0.0f), Quaternion.identity);
+            shield.GetComponent<ShieldScript>().setTimer(shieldDuration);
+            energy -= shieldEnergyCost;
+
+        }
+    }
+
+    private void stopShielding()
+    {
+        isReflecting = false;
     }
 
     private void shoot()
@@ -187,7 +216,7 @@ public class PlayerSam : MonoBehaviour
     {
         Debug.Log("Start dash");
         //Cant dash while dashing
-        if (!isDashing)
+        if (!isDashing && energy >= dashCost)
         {
             Debug.Log("Actually dashing");
             isDashing = true;
