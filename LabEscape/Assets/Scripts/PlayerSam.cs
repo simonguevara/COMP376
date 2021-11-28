@@ -28,6 +28,7 @@ public class PlayerSam : MonoBehaviour
     [Header("Hitstun/Invicibility")]
     float kInvincibilityDuration = 1.0f;
     float mInvincibleTimer;
+
     bool mInvincible;
     bool isStunned = false;
     float hitStunDuration = 0.5f;
@@ -66,13 +67,24 @@ public class PlayerSam : MonoBehaviour
     public float shootDelay = 0.2f;
     public GameObject bulletPrefab;
     private bool isShootOnCD = false;
-    private bool isTriggerPressed = false;
+    public bool isTriggerPressed = false;
+
+    //Shield ability
+    public bool isReflecting = false;
 
     private void Awake()
     {
         CharacterController = GetComponent<CharacterController>();
         playerControls = new PlayerControls();
         playerInput = GetComponent<PlayerInput>();
+
+        //For the recall ability
+        setupImagesArray();
+    }
+
+    private void setupImagesArray()
+    {
+        //throw new NotImplementedException();
     }
 
     private void OnEnable()
@@ -137,25 +149,23 @@ public class PlayerSam : MonoBehaviour
         if(playerControls.Controls.Shoot.triggered && !isTriggerPressed)
             isTriggerPressed = true;
 
+        Debug.Log("playerControls.Controls.Shoot.triggered");
 
-        if (isTriggerPressed && !isShootOnCD && !isStunned && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+        if (!isStunned)
         {
-            Debug.Log("Pew pew!");
-            shoot();
+            if (isTriggerPressed && !isShootOnCD  && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            {
+                Debug.Log("Pew pew!");
+                shoot();
+            }
 
-        } 
-
-        if (Input.GetKeyDown("space") && !isStunned)
-        {
-            Debug.Log("Space input");
-            startDash();
+            if (playerControls.Controls.Dash.triggered)
+            {
+                Debug.Log("Space input");
+                startDash();
+            }
         }
-
-        if (Input.GetKeyDown("[1]") && !isShootOnCD && !isStunned)
-        {
-            Debug.Log("Shoot input");
-            shoot();
-        }
+        
     }
 
     private void shoot()
@@ -289,8 +299,8 @@ public class PlayerSam : MonoBehaviour
             playerRigidBody2D.velocity = Vector2.zero;
             playerRigidBody2D.AddForce(forceDirection, ForceMode2D.Impulse);
             mInvincible = true;
-            Health h = GetComponent<Health>();
-            h.DamagePlayer(dmg);
+            //Health h = GetComponent<Health>();
+            //h.DamagePlayer(dmg);
         }
     }
 

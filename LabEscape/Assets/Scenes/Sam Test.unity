@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowHazmat
       objectReference: {fileID: 0}
+    - target: {fileID: 8653811364094013655, guid: e250636ba505a8a4bbef8498182d65fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8653811364094013658, guid: e250636ba505a8a4bbef8498182d65fd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1787,6 +1791,8 @@ MonoBehaviour:
   dashCost: 1
   shootDelay: 0.2
   bulletPrefab: {fileID: 244928184974310066, guid: 342948a23fca1424e9e2d356a044b588, type: 3}
+  isTriggerPressed: 0
+  isReflecting: 1
 --- !u!114 &1693397522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3055,77 +3061,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
---- !u!1001 &2130819886013122814
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.017753
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3344317158436706388, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4931021673962147885, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-      propertyPath: m_Name
-      value: EnemyBullet
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
---- !u!1 &2130819886013122815 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4931021673962147885, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
-  m_PrefabInstance: {fileID: 2130819886013122814}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2130819886013122816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130819886013122815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3176acee7390a584cbfd1635d8d4dac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
