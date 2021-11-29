@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    public GameObject healthPackPrefab;
+    public float healthPackDropChance = 0.1f;
 
     public int healthPoints = 10;
 
@@ -43,6 +45,11 @@ public class EnemyScript : MonoBehaviour
 
     private void OnDeath()
     {
+        float random = UnityEngine.Random.Range(0, 1);
+        if(random < healthPackDropChance)
+        {
+            Instantiate(healthPackPrefab, transform.position, Quaternion.identity);
+        }
         //TO DO : On death stufff
     }
 }

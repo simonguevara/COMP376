@@ -262,4 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb17e70455c01b45bf3df03dd02774e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthPackPrefab: {fileID: 176923248758321110, guid: 6314db99585f2544fb419c2b7b27f85c, type: 3}
+  healthPackDropChance: 0.1
   healthPoints: 10
+  isStunned: 0

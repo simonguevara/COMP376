@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 232812614438953625}
   - component: {fileID: 232812614438953624}
   - component: {fileID: -7836517329965802415}
+  - component: {fileID: 597686812}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -105,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!58 &232812614438953624
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,3 +138,19 @@ MonoBehaviour:
   fireRate: 1
   dmg: 1
   bulletPrefab: {fileID: 4931021673962147885, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
+--- !u!114 &597686812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420168627054550528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb17e70455c01b45bf3df03dd02774e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPackPrefab: {fileID: 176923248758321110, guid: 6314db99585f2544fb419c2b7b27f85c, type: 3}
+  healthPackDropChance: 0.1
+  healthPoints: 10
+  isStunned: 0
