@@ -50,9 +50,14 @@ public class PlayerSam : MonoBehaviour
 
     //For gadget aquisition
     [Header("Gadget Unlock")]
-    private bool hasBoots = true;
-    private bool hasShield = true;
-    private bool hasGun = true;
+    public bool hasBoots = false;
+    public bool hasShield = false;
+    public bool hasGun = true;
+    public bool hasHazmat = false;
+    public bool hasEMP = false;
+    public bool hasRecall = false;
+    public bool hasPortalGun = false;
+    
 
     //Energy
     [Header("Energy Settings")]
@@ -222,31 +227,31 @@ public class PlayerSam : MonoBehaviour
                 shoot();
             }
 
-            if (playerControls.Controls.Dash.triggered)
+            if (playerControls.Controls.Dash.triggered && hasBoots)
             {
                 Debug.Log("Space input");
                 startDash();
             }
 
-            if (playerControls.Controls.Shield.triggered)
+            if (playerControls.Controls.Shield.triggered && hasShield)
             {
                 Debug.Log("Shield");
                 shield();
             }
 
-            if (playerControls.Controls.EMP.triggered && !isEMPCD && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            if (playerControls.Controls.EMP.triggered && !isEMPCD && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone) && hasEMP)
             {
                 Debug.Log("EMP");
                 EMP();
             }
 
-            if (playerControls.Controls.BluePortal.triggered && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            if (playerControls.Controls.BluePortal.triggered && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone) && hasPortalGun)
             {
                 Debug.Log("Blue Portal Fired");
                 shootBluePortal();
             }
 
-            if (playerControls.Controls.RedPortal.triggered && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            if (playerControls.Controls.RedPortal.triggered && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone) && hasPortalGun)
             {
                 Debug.Log("Red Portal Fired");
                 shootRedPortal();
@@ -255,12 +260,11 @@ public class PlayerSam : MonoBehaviour
         }
 
         //Can recall out of hitstun
-        if (playerControls.Controls.Recall.triggered && !isRecalling)
+        if (playerControls.Controls.Recall.triggered && !isRecalling && hasRecall)
         {
             Debug.Log("Recall");
             Recall();
         }
-
     }
 
     private void shootRedPortal()
@@ -535,21 +539,5 @@ public class PlayerSam : MonoBehaviour
         mAnimator.SetBool("isMovingLeft", false);
         mAnimator.SetBool("isMovingUp", false);
         mAnimator.SetBool("isMovingDown", false);
-    }
-
-
-    //Methods for aquiring gadgets
-    private void getBoots()
-    {
-        hasBoots = true;
-        //display dialogue or events
-    }
-    private void getGun()
-    {
-        hasGun = true;
-    }
-    private void getShield()
-    {
-        hasShield = true;
     }
 }
