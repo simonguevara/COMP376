@@ -23,7 +23,10 @@ public class PlayerSam : MonoBehaviour
     private SpriteRenderer mSpriteRenderer;
     private Animator mAnimator;
 
-    // Invincibility timer
+    //
+    String currentInputScheme;
+
+    // Health
     [Header("Health")]
     public int health = 10;
     public int maxHealth = 10;
@@ -203,15 +206,15 @@ public class PlayerSam : MonoBehaviour
 
     private void checkInputs()
     {
+        currentInputScheme = playerInput.currentControlScheme;
+
         movement = playerControls.Controls.Movement.ReadValue<Vector2>();
         aim = playerControls.Controls.Aim.ReadValue<Vector2>();
 
-        
-        //Right Trigger status
-        if (playerControls.Controls.Shoot.triggered && isRightTriggerPressed)
-            isRightTriggerPressed = false;
-        if(playerControls.Controls.Shoot.triggered && !isRightTriggerPressed)
-            isRightTriggerPressed = true;
+        if(currentInputScheme == "MKB")
+        {
+            //DO MOUSE AIM HERE
+        }
  
 
         if (!isStunned)
@@ -220,7 +223,7 @@ public class PlayerSam : MonoBehaviour
             Debug.Log("LT:" + playerControls.Controls.EMP.triggered);
 
 
-            if (isRightTriggerPressed && !isShootOnCD  && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            if (playerControls.Controls.Shoot.triggered && !isShootOnCD  && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
             {
                 Debug.Log("Pew pew!");
                 shoot();

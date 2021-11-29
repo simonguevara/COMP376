@@ -1730,6 +1730,30 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+      propertyPath: hasEMP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+      propertyPath: hasBoots
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+      propertyPath: hasHazmat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+      propertyPath: hasRecall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+      propertyPath: hasShield
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+      propertyPath: hasPortalGun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
       propertyPath: redPortalProjectilePrefab
       value: 
       objectReference: {fileID: 3092730393580351866, guid: 3f89d545675c7e54c85ae4983ca7b98b, type: 3}
@@ -1737,6 +1761,14 @@ PrefabInstance:
       propertyPath: bluePortalProjectilePrefab
       value: 
       objectReference: {fileID: 2588248072923912692, guid: 173ed7719b42de3438682a9c735be50c, type: 3}
+    - target: {fileID: 1693397523, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693397523, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5022951006672850610, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
       propertyPath: m_Name
       value: Sam Player
@@ -3105,11 +3137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6163411927324518188, guid: a0455bfe82babba488115cb3ade255ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.72841
+      value: 17.2
       objectReference: {fileID: 0}
     - target: {fileID: 6163411927324518188, guid: a0455bfe82babba488115cb3ade255ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.795186
+      value: 10.9
       objectReference: {fileID: 0}
     - target: {fileID: 6163411927324518188, guid: a0455bfe82babba488115cb3ade255ee, type: 3}
       propertyPath: m_LocalPosition.z
