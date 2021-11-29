@@ -10,6 +10,7 @@ public class BootsPickupScript : MonoBehaviour
         {
             Debug.Log("Boots Pickup");
             GameObject.FindWithTag("Player").GetComponent<PlayerSam>().hasBoots = true;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isGadgetFound = true;
             //Do events
             Destroy(gameObject);
         }

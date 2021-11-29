@@ -9,7 +9,6 @@ public class PlayerSam : MonoBehaviour
 {
     [SerializeField] private int playerSpeed;
     [SerializeField] private float controllerDeadzone = 0.1f;
-    [SerializeField] private float gamepadRotateSmoothing = 1000f;
 
     [SerializeField] private bool isController = false;
 
@@ -24,7 +23,10 @@ public class PlayerSam : MonoBehaviour
     private SpriteRenderer mSpriteRenderer;
     private Animator mAnimator;
 
-    // Invincibility timer
+    //
+    String currentInputScheme;
+
+    // Health
     [Header("Health")]
     public int health = 10;
     public int maxHealth = 10;
@@ -204,15 +206,15 @@ public class PlayerSam : MonoBehaviour
 
     private void checkInputs()
     {
+        currentInputScheme = playerInput.currentControlScheme;
+
         movement = playerControls.Controls.Movement.ReadValue<Vector2>();
         aim = playerControls.Controls.Aim.ReadValue<Vector2>();
 
-        
-        //Right Trigger status
-        if (playerControls.Controls.Shoot.triggered && isRightTriggerPressed)
-            isRightTriggerPressed = false;
-        if(playerControls.Controls.Shoot.triggered && !isRightTriggerPressed)
-            isRightTriggerPressed = true;
+        if(currentInputScheme == "MKB")
+        {
+            //DO MOUSE AIM HERE
+        }
  
 
         if (!isStunned)
@@ -221,7 +223,7 @@ public class PlayerSam : MonoBehaviour
             Debug.Log("LT:" + playerControls.Controls.EMP.triggered);
 
 
-            if (isRightTriggerPressed && !isShootOnCD  && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            if (playerControls.Controls.Shoot.triggered && !isShootOnCD  && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
             {
                 Debug.Log("Pew pew!");
                 shoot();
@@ -501,13 +503,13 @@ public class PlayerSam : MonoBehaviour
     {
         if (!mInvincible || isDashing)
         {
-            Vector2 forceDirection = direction * kDamagePushForce;
+            Vector2 forceDirection = direction.normalized * kDamagePushForce;
             playerRigidBody2D.velocity = Vector2.zero;
             playerRigidBody2D.AddForce(forceDirection, ForceMode2D.Impulse);
+            Debug.Log("Player bumped");
             mInvincible = true;
+            isStunned = true;
             health -= dmg;
-            //Health h = GetComponent<Health>();
-            //h.DamagePlayer(dmg);
         }
     }
 

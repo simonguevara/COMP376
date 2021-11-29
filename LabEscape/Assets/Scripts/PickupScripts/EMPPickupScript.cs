@@ -10,6 +10,7 @@ public class EMPPickupScript : MonoBehaviour
         {
             Debug.Log("EMP Pickup");
             GameObject.FindWithTag("Player").GetComponent<PlayerSam>().hasEMP = true;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isGadgetFound = true;
             //Do events
             Destroy(gameObject);
         }
