@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4931021673962147885
+--- !u!1 &2588248072923912692
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3344317158436706388}
-  - component: {fileID: 2599499386074365756}
-  - component: {fileID: 2130819886013122817}
-  - component: {fileID: 2130819886013122816}
-  - component: {fileID: 2751943232181293777}
+  - component: {fileID: 4351014485422851463}
+  - component: {fileID: 5316721892168469776}
+  - component: {fileID: 8874538335912843783}
+  - component: {fileID: 7944270287176331622}
+  - component: {fileID: 7804508175168420537}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: BluePortalProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3344317158436706388
+--- !u!4 &4351014485422851463
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4931021673962147885}
+  m_GameObject: {fileID: 2588248072923912692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.017753, y: 5.79229, z: 0}
-  m_LocalScale: {x: 0.47838, y: 0.47838, z: 0.47838}
+  m_LocalPosition: {x: 10.7, y: 13.744916, z: 0}
+  m_LocalScale: {x: 0.54798, y: 0.54798, z: 0.54798}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2599499386074365756
+--- !u!212 &5316721892168469776
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4931021673962147885}
+  m_GameObject: {fileID: 2588248072923912692}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,9 +73,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1949451801
   m_SortingLayer: 1
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.9150943, g: 0.09927912, b: 0.09927912, a: 1}
+  m_Color: {r: 0, g: 0.06032777, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -85,14 +85,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &2130819886013122817
+--- !u!50 &8874538335912843783
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4931021673962147885}
+  m_GameObject: {fileID: 2588248072923912692}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -106,13 +106,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &2130819886013122816
+--- !u!58 &7944270287176331622
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4931021673962147885}
+  m_GameObject: {fileID: 2588248072923912692}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -122,19 +122,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2751943232181293777
+--- !u!114 &7804508175168420537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4931021673962147885}
+  m_GameObject: {fileID: 2588248072923912692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3176acee7390a584cbfd1635d8d4dac8, type: 3}
+  m_Script: {fileID: 11500000, guid: 71189ab5d4087e247a2a0336cdf84939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
   speed: 5
-  damage: 1
-  playerBulletPrefab: {fileID: 244928184974310066, guid: 342948a23fca1424e9e2d356a044b588, type: 3}
+  isRed: 1
+  redPortalPrefab: {fileID: 7221040959225816058, guid: cfb1d62cf956b4c4984f96ef14caa015, type: 3}
+  bluePortalPrefab: {fileID: 7332437960093745075, guid: ab9032adf717f4544b7032f06218b08e, type: 3}

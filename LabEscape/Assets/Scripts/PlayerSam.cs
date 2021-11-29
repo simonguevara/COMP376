@@ -107,7 +107,18 @@ public class PlayerSam : MonoBehaviour
     private float recallAnimationTime = 0.5f;
     private int currentAnimationIndex = 0;
 
-
+    //Portal ability
+    public enum Color
+    {
+       Red,
+       Blue,
+       none
+    }
+    [Header("PortalSettings")]
+    private Color lastTeleportedBy = Color.none;
+    public GameObject redPortalProjectilePrefab;
+    public GameObject bluePortalProjectilePrefab;
+    public int portalEnergyCost = 1;
 
 
     private void Awake()
@@ -118,6 +129,14 @@ public class PlayerSam : MonoBehaviour
 
         //For the recall ability
         setupImagesArray();
+
+        playerRigidBody2D = GetComponent<Rigidbody2D>();
+        mAnimator = GetComponent<Animator>();
+        mSpriteRenderer = GetComponent<SpriteRenderer>();
+
+        //Start energy regen
+        InvokeRepeating("energyRegen", 0.0f, regenTimeStep);
+        InvokeRepeating("createImage", 0.0f, imageInterval);
     }
 
     private void setupImagesArray()
@@ -140,18 +159,6 @@ public class PlayerSam : MonoBehaviour
         playerControls.Disable();
     }
 
-    void Start()
-    {
-        playerRigidBody2D = GetComponent<Rigidbody2D>();
-        mAnimator = GetComponent<Animator>();
-        mSpriteRenderer = GetComponent<SpriteRenderer>();
-
-        //Start energy regen
-        InvokeRepeating("energyRegen", 0.0f, regenTimeStep);
-        InvokeRepeating("createImage", 0.0f, imageInterval);
-
-    }
-
 
     private void Update()
     {
@@ -168,7 +175,6 @@ public class PlayerSam : MonoBehaviour
             animate();
         }
     }
-
 
     private void createImage()
     {
@@ -202,14 +208,7 @@ public class PlayerSam : MonoBehaviour
             isRightTriggerPressed = false;
         if(playerControls.Controls.Shoot.triggered && !isRightTriggerPressed)
             isRightTriggerPressed = true;
-        /*
-        //Left Trigger status
-        if (playerControls.Controls.EMP.triggered && isLeftTriggerPressed)
-            isLeftTriggerPressed = false;
-        if (playerControls.Controls.EMP.triggered && !isLeftTriggerPressed)
-            isLeftTriggerPressed = true;
-        */
-        //Debug.Log("playerControls.Controls.Shoot.triggered");
+ 
 
         if (!isStunned)
         {
@@ -240,6 +239,19 @@ public class PlayerSam : MonoBehaviour
                 Debug.Log("EMP");
                 EMP();
             }
+
+            if (playerControls.Controls.BluePortal.triggered && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            {
+                Debug.Log("Blue Portal Fired");
+                shootBluePortal();
+            }
+
+            if (playerControls.Controls.RedPortal.triggered && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            {
+                Debug.Log("Red Portal Fired");
+                shootRedPortal();
+            }
+
         }
 
         //Can recall out of hitstun
@@ -249,6 +261,27 @@ public class PlayerSam : MonoBehaviour
             Recall();
         }
 
+    }
+
+    private void shootRedPortal()
+    {
+        if (energy >= portalEnergyCost)
+        {
+            energy -= portalEnergyCost;
+            GameObject newBullet = Instantiate(redPortalProjectilePrefab, transform.position, Quaternion.identity);
+            newBullet.GetComponent<PortalProjectileScript>().setDirection(aim.normalized);
+        }
+    }
+
+    private void shootBluePortal()
+    {
+        if (energy >= portalEnergyCost)
+        {
+            energy -= portalEnergyCost;
+            GameObject newBullet = Instantiate(bluePortalProjectilePrefab, transform.position, Quaternion.identity);
+            newBullet.GetComponent<PortalProjectileScript>().setDirection(aim.normalized);
+            newBullet.GetComponent<PortalProjectileScript>().isRed = false;
+        }
     }
 
     private void Recall()
@@ -263,7 +296,7 @@ public class PlayerSam : MonoBehaviour
             imagesArraySnapShot = imagesArray;
             oldestImageIndexSnapShot = oldestImageIndex;
             timeOnCurrentImage = 1f;
-            currentAnimationIndex = (oldestImageIndexSnapShot) % numberOfImages;
+            currentAnimationIndex = (oldestImageIndexSnapShot);
         }
     }
 
@@ -471,7 +504,31 @@ public class PlayerSam : MonoBehaviour
         }
     }
 
+    public void teleport(Color color)
+    {
+        if(lastTeleportedBy == Color.none)
+        {
+            lastTeleportedBy = color;
+            if(lastTeleportedBy == Color.Blue)
+            {
+                GameObject redPortal = GameObject.FindWithTag("RedPortal");
+                transform.position = redPortal.transform.position;
+            }
+            if (lastTeleportedBy == Color.Red)
+            {
+                GameObject bluePortal = GameObject.FindWithTag("BluePortal");
+                transform.position = bluePortal.transform.position;
+            }
+        } 
+    }
 
+    public void exitTeleporterZone(Color color)
+    {
+        if(color != lastTeleportedBy)
+        {
+            lastTeleportedBy = Color.none;
+        }
+    }
 
     private void SetAnimatorToIdle()
     {

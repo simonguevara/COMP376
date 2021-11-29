@@ -73,6 +73,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""RedPortal"",
+                    ""type"": ""Button"",
+                    ""id"": ""68dc13a8-038d-4d08-b6c3-b53d35bf61a0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""BluePortal"",
+                    ""type"": ""Button"",
+                    ""id"": ""96501b3a-481f-479b-b062-e351a0b40c71"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -240,6 +256,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Recall"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d45e7fcf-44c2-4c39-ad08-2640d456b485"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""RedPortal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57d42af5-3511-4b74-a276-4fd670cd36d9"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""BluePortal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -277,6 +315,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Controls_Shield = m_Controls.FindAction("Shield", throwIfNotFound: true);
         m_Controls_EMP = m_Controls.FindAction("EMP", throwIfNotFound: true);
         m_Controls_Recall = m_Controls.FindAction("Recall", throwIfNotFound: true);
+        m_Controls_RedPortal = m_Controls.FindAction("RedPortal", throwIfNotFound: true);
+        m_Controls_BluePortal = m_Controls.FindAction("BluePortal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -333,6 +373,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Controls_Shield;
     private readonly InputAction m_Controls_EMP;
     private readonly InputAction m_Controls_Recall;
+    private readonly InputAction m_Controls_RedPortal;
+    private readonly InputAction m_Controls_BluePortal;
     public struct ControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -344,6 +386,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Shield => m_Wrapper.m_Controls_Shield;
         public InputAction @EMP => m_Wrapper.m_Controls_EMP;
         public InputAction @Recall => m_Wrapper.m_Controls_Recall;
+        public InputAction @RedPortal => m_Wrapper.m_Controls_RedPortal;
+        public InputAction @BluePortal => m_Wrapper.m_Controls_BluePortal;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -374,6 +418,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Recall.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnRecall;
                 @Recall.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnRecall;
                 @Recall.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnRecall;
+                @RedPortal.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnRedPortal;
+                @RedPortal.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnRedPortal;
+                @RedPortal.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnRedPortal;
+                @BluePortal.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnBluePortal;
+                @BluePortal.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnBluePortal;
+                @BluePortal.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnBluePortal;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -399,6 +449,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Recall.started += instance.OnRecall;
                 @Recall.performed += instance.OnRecall;
                 @Recall.canceled += instance.OnRecall;
+                @RedPortal.started += instance.OnRedPortal;
+                @RedPortal.performed += instance.OnRedPortal;
+                @RedPortal.canceled += instance.OnRedPortal;
+                @BluePortal.started += instance.OnBluePortal;
+                @BluePortal.performed += instance.OnBluePortal;
+                @BluePortal.canceled += instance.OnBluePortal;
             }
         }
     }
@@ -430,5 +486,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnShield(InputAction.CallbackContext context);
         void OnEMP(InputAction.CallbackContext context);
         void OnRecall(InputAction.CallbackContext context);
+        void OnRedPortal(InputAction.CallbackContext context);
+        void OnBluePortal(InputAction.CallbackContext context);
     }
 }

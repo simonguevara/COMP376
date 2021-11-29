@@ -60,6 +60,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "RedPortal",
+                    "type": "Button",
+                    "id": "68dc13a8-038d-4d08-b6c3-b53d35bf61a0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "BluePortal",
+                    "type": "Button",
+                    "id": "96501b3a-481f-479b-b062-e351a0b40c71",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -225,6 +241,28 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Recall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d45e7fcf-44c2-4c39-ad08-2640d456b485",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "RedPortal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57d42af5-3511-4b74-a276-4fd670cd36d9",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "BluePortal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
