@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3267353168288222897}
   - component: {fileID: -3779131640022449002}
   - component: {fileID: 1693397516}
-  - component: {fileID: 1693397522}
   - component: {fileID: 1693397523}
   m_Layer: 0
   m_Name: Sam Player
@@ -206,21 +205,12 @@ MonoBehaviour:
   isEMPCD: 0
   EMPEnergyCost: 3
   EMPPrefab: {fileID: 7440714951494119661, guid: ce0256b9ebde0bf47a4489dba37db2ea, type: 3}
---- !u!114 &1693397522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5022951006672850610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eccee596f963a474080d034ead5b6603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curHealth: 0
-  maxHealth: 100
-  healthBar: {fileID: 0}
+  isLeftTriggerPressed: 0
+  isRecallCD: 0
+  recallEnergyCost: 6
+  imagePrefab: {fileID: 1277091446717238726, guid: 80dd2bc24dff20341a65e705d1c888ed, type: 3}
+  numberOfImages: 6
+  imageInterval: 0.5
 --- !u!114 &1693397523
 MonoBehaviour:
   m_ObjectHideFlags: 0

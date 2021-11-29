@@ -90,6 +90,26 @@ public class PlayerSam : MonoBehaviour
     public GameObject EMPPrefab;
     public bool isLeftTriggerPressed = false;
 
+    //EMP ability
+    [Header("RecallSettings")]
+    public bool isRecalling = false;
+    public int recallEnergyCost = 6;
+    public GameObject imagePrefab;
+    public int numberOfImages = 6;
+    public float imageInterval = 0.5f;
+    //Working stuff
+    private int oldestImageIndex = 0;
+    private int oldestImageIndexSnapShot = 0;
+    private GameObject[] imagesArray;
+    private GameObject[] imagesArraySnapShot;
+    //Animation
+    private float timeOnCurrentImage = 0f;
+    private float recallAnimationTime = 0.5f;
+    private int currentAnimationIndex = 0;
+
+
+
+
     private void Awake()
     {
         CharacterController = GetComponent<CharacterController>();
@@ -102,7 +122,12 @@ public class PlayerSam : MonoBehaviour
 
     private void setupImagesArray()
     {
-        //throw new NotImplementedException();
+        imagesArray = new GameObject[numberOfImages];
+        for(int i = 0; i < imagesArray.Length; i++)
+        {
+            imagesArray[i] = Instantiate(imagePrefab, transform.position, Quaternion.identity);
+            imagesArray[i].GetComponent<ImageScript>().hp = 10;
+        }
     }
 
     private void OnEnable()
@@ -123,8 +148,10 @@ public class PlayerSam : MonoBehaviour
 
         //Start energy regen
         InvokeRepeating("energyRegen", 0.0f, regenTimeStep);
+        InvokeRepeating("createImage", 0.0f, imageInterval);
 
     }
+
 
     private void Update()
     {
@@ -142,6 +169,15 @@ public class PlayerSam : MonoBehaviour
         }
     }
 
+
+    private void createImage()
+    {
+        imagesArray[oldestImageIndex] = Instantiate(imagePrefab, transform.position, Quaternion.identity);
+        imagesArray[oldestImageIndex].GetComponent<ImageScript>().hp = health;
+        oldestImageIndex = (oldestImageIndex + 1) % numberOfImages;
+        if (oldestImageIndex < 0)
+            oldestImageIndex += numberOfImages;
+    }
 
     private void energyRegen()
     {
@@ -204,10 +240,39 @@ public class PlayerSam : MonoBehaviour
                 Debug.Log("EMP");
                 EMP();
             }
-
-
         }
-        
+
+        //Can recall out of hitstun
+        if (playerControls.Controls.Recall.triggered && !isRecalling)
+        {
+            Debug.Log("Recall");
+            Recall();
+        }
+
+    }
+
+    private void Recall()
+    {
+        if(energy>= recallEnergyCost)
+        {
+            isRecalling = true;
+            energy -= recallEnergyCost;
+            TakeDamage(Vector2.zero, 0);
+            //Recall animation
+            Invoke("CompleteRecall", recallAnimationTime);
+            imagesArraySnapShot = imagesArray;
+            oldestImageIndexSnapShot = oldestImageIndex;
+            timeOnCurrentImage = 1f;
+            currentAnimationIndex = (oldestImageIndexSnapShot) % numberOfImages;
+        }
+    }
+
+    private void CompleteRecall()
+    {
+        isRecalling = false;
+        health = imagesArraySnapShot[oldestImageIndexSnapShot].GetComponent<ImageScript>().hp;
+        transform.position = imagesArraySnapShot[oldestImageIndexSnapShot].transform.position;
+        //Recall animation stuff, free maovement, still 0.5 sec off invuln
     }
 
     private void EMP()
@@ -305,7 +370,11 @@ public class PlayerSam : MonoBehaviour
     private void doMovement()
     {
         //Check for dash movement or normal movement
-        if (!isDashing)
+        if (isRecalling)
+        {
+            recallMovement();
+        }
+        else if (!isDashing)
         {
             normalMovement();
         }
@@ -313,6 +382,25 @@ public class PlayerSam : MonoBehaviour
         {
             dashMovement();
         }
+    }
+
+    private void recallMovement()
+    {
+        
+        timeOnCurrentImage += Time.deltaTime;
+
+        float timePerImage = recallAnimationTime / numberOfImages;
+
+        if(timeOnCurrentImage >= timePerImage)
+        {
+            currentAnimationIndex = (currentAnimationIndex-1)%numberOfImages;
+            if (currentAnimationIndex < 0)
+                currentAnimationIndex += numberOfImages;
+            timeOnCurrentImage = 0f;
+            playerRigidBody2D.velocity = Vector2.zero;
+        }
+
+        transform.position = imagesArraySnapShot[currentAnimationIndex].transform.position;
     }
 
     private void dashMovement()

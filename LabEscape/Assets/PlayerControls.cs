@@ -65,6 +65,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Recall"",
+                    ""type"": ""Button"",
+                    ""id"": ""f45e4042-13a1-4af7-8dd0-a86c15aa0af6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -221,6 +229,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""EMP"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9512aa06-94b0-4797-8ce4-4cc1ba930571"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Recall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -257,6 +276,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Controls_Dash = m_Controls.FindAction("Dash", throwIfNotFound: true);
         m_Controls_Shield = m_Controls.FindAction("Shield", throwIfNotFound: true);
         m_Controls_EMP = m_Controls.FindAction("EMP", throwIfNotFound: true);
+        m_Controls_Recall = m_Controls.FindAction("Recall", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -312,6 +332,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Controls_Dash;
     private readonly InputAction m_Controls_Shield;
     private readonly InputAction m_Controls_EMP;
+    private readonly InputAction m_Controls_Recall;
     public struct ControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -322,6 +343,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Dash => m_Wrapper.m_Controls_Dash;
         public InputAction @Shield => m_Wrapper.m_Controls_Shield;
         public InputAction @EMP => m_Wrapper.m_Controls_EMP;
+        public InputAction @Recall => m_Wrapper.m_Controls_Recall;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -349,6 +371,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @EMP.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnEMP;
                 @EMP.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnEMP;
                 @EMP.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnEMP;
+                @Recall.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnRecall;
+                @Recall.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnRecall;
+                @Recall.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnRecall;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -371,6 +396,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @EMP.started += instance.OnEMP;
                 @EMP.performed += instance.OnEMP;
                 @EMP.canceled += instance.OnEMP;
+                @Recall.started += instance.OnRecall;
+                @Recall.performed += instance.OnRecall;
+                @Recall.canceled += instance.OnRecall;
             }
         }
     }
@@ -401,5 +429,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnShield(InputAction.CallbackContext context);
         void OnEMP(InputAction.CallbackContext context);
+        void OnRecall(InputAction.CallbackContext context);
     }
 }
