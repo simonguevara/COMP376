@@ -9,7 +9,6 @@ public class PlayerSam : MonoBehaviour
 {
     [SerializeField] private int playerSpeed;
     [SerializeField] private float controllerDeadzone = 0.1f;
-    [SerializeField] private float gamepadRotateSmoothing = 1000f;
 
     [SerializeField] private bool isController = false;
 
@@ -498,13 +497,13 @@ public class PlayerSam : MonoBehaviour
     {
         if (!mInvincible || isDashing)
         {
-            Vector2 forceDirection = direction * kDamagePushForce;
+            Vector2 forceDirection = direction.normalized * kDamagePushForce;
             playerRigidBody2D.velocity = Vector2.zero;
             playerRigidBody2D.AddForce(forceDirection, ForceMode2D.Impulse);
+            Debug.Log("Player bumped");
             mInvincible = true;
+            isStunned = true;
             health -= dmg;
-            //Health h = GetComponent<Health>();
-            //h.DamagePlayer(dmg);
         }
     }
 

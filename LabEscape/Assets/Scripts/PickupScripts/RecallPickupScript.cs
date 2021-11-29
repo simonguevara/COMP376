@@ -10,6 +10,7 @@ public class RecallPickupScript : MonoBehaviour
         {
             Debug.Log("Recall Pickup");
             GameObject.FindWithTag("Player").GetComponent<PlayerSam>().hasRecall = true;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isGadgetFound = true;
             //Do events
             Destroy(gameObject);
         }

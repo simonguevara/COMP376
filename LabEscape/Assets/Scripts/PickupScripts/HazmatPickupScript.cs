@@ -10,6 +10,7 @@ public class HazmatPickupScript : MonoBehaviour
         {
             Debug.Log("Hazmat Pickup");
             GameObject.FindWithTag("Player").GetComponent<PlayerSam>().hasHazmat = true;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isGadgetFound = true;
             //Do events
             Destroy(gameObject);
         }
