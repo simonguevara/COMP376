@@ -238,7 +238,6 @@ public class PlayerSam : MonoBehaviour
             if (playerControls.Controls.Shield.triggered && hasShield)
             {
                 Debug.Log("Shield");
-                this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
                 shield();
             }
 
@@ -341,7 +340,6 @@ public class PlayerSam : MonoBehaviour
             Invoke("stopShielding", shieldDuration);
             GameObject shield = Instantiate(shieldPrefab, transform.position + new Vector3(0.0f, 0.01f, 0.0f), Quaternion.identity);
             shield.GetComponent<ShieldScript>().setTimer(shieldDuration);
-             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             energy -= shieldEnergyCost;
 
         }
