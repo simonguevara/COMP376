@@ -97,7 +97,7 @@ public class PlayerSam : MonoBehaviour
     public GameObject EMPPrefab;
     public bool isLeftTriggerPressed = false;
 
-    //EMP ability
+    //Recall ability
     [Header("RecallSettings")]
     public bool isRecalling = false;
     public int recallEnergyCost = 6;
@@ -107,6 +107,7 @@ public class PlayerSam : MonoBehaviour
     //Working stuff
     private int oldestImageIndex = 0;
     private int oldestImageIndexSnapShot = 0;
+    private int recallHealth;
     private GameObject[] imagesArray;
     private GameObject[] imagesArraySnapShot;
     //Animation
@@ -178,9 +179,11 @@ public class PlayerSam : MonoBehaviour
     {
         if (!isStunned)
         {
-            doMovement();
+            
             animate();
         }
+
+        doMovement();
     }
 
     private void createImage()
@@ -214,6 +217,7 @@ public class PlayerSam : MonoBehaviour
         if(currentInputScheme == "MKB")
         {
             //DO MOUSE AIM HERE
+            //aim = w/e
         }
  
 
@@ -301,6 +305,7 @@ public class PlayerSam : MonoBehaviour
             Invoke("CompleteRecall", recallAnimationTime);
             imagesArraySnapShot = imagesArray;
             oldestImageIndexSnapShot = oldestImageIndex;
+            recallHealth = imagesArraySnapShot[oldestImageIndex].GetComponent<ImageScript>().hp;
             timeOnCurrentImage = 1f;
             currentAnimationIndex = (oldestImageIndexSnapShot);
         }
@@ -309,8 +314,9 @@ public class PlayerSam : MonoBehaviour
     private void CompleteRecall()
     {
         isRecalling = false;
-        health = imagesArraySnapShot[oldestImageIndexSnapShot].GetComponent<ImageScript>().hp;
-        transform.position = imagesArraySnapShot[oldestImageIndexSnapShot].transform.position;
+        health = recallHealth;
+        //health = imagesArraySnapShot[oldestImageIndexSnapShot].GetComponent<ImageScript>().hp;
+        //transform.position = imagesArraySnapShot[oldestImageIndexSnapShot].transform.position;
         //Recall animation stuff, free maovement, still 0.5 sec off invuln
     }
 
@@ -413,13 +419,13 @@ public class PlayerSam : MonoBehaviour
         {
             recallMovement();
         }
-        else if (!isDashing)
-        {
-            normalMovement();
-        }
-        else
+        else if (isDashing)
         {
             dashMovement();
+        }
+        else if(!isStunned)
+        {
+            normalMovement();
         }
     }
 
