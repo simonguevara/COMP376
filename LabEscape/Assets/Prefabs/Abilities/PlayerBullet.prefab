@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2160463254679606638}
   - component: {fileID: 3118745922537669996}
   - component: {fileID: -4285042385105798745}
+  - component: {fileID: 913391551816781299}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: PlayerProjectile
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 750650581637798775, guid: b6c7917cabc1e5946bc2c0c49eb69f8e, type: 3}
+  m_Sprite: {fileID: 8140593895237489223, guid: 5e3bf60c01d1fa1469cdc30c717a84f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,3 +138,22 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   speed: 3
   damage: 1
+--- !u!95 &913391551816781299
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244928184974310066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e018b6401502a647b5d96948d7efd97, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
