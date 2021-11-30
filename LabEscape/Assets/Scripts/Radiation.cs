@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Radiation : MonoBehaviour
 {
-     float kInvincibilityDuration = 1.15f;
+     float tickRate = 1.15f;
     float mInvincibleTimer;
     bool mInvincible;
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class Radiation : MonoBehaviour
         if (mInvincible)
         {
             mInvincibleTimer += Time.deltaTime;
-            if (mInvincibleTimer >= kInvincibilityDuration)
+            if (mInvincibleTimer >= tickRate)
             {
                 mInvincible = false;
                 mInvincibleTimer = 0.0f;
@@ -33,9 +33,9 @@ public class Radiation : MonoBehaviour
         if (col.gameObject.tag == "Player" && !mInvincible)
         {
             
-            Player player = col.gameObject.GetComponent<Player>();
+            PlayerSam player = col.gameObject.GetComponent<PlayerSam>();
             mInvincible = true;
-            player.TakeDamage(Vector2.zero, 5, false);
+            player.TakeRadiationDamage(1);
         }
     }
 }

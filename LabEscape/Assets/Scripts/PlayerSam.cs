@@ -35,6 +35,13 @@ public class PlayerSam : MonoBehaviour
     // Invincibility timer
     [Header("Hitstun/Invicibility")]
     float kInvincibilityDuration = 1.0f;
+
+    internal void TakeRadiationDamage(int damage)
+    {
+        health -= damage;
+        //Damage feedback
+    }
+
     float mInvincibleTimer;
 
     bool mInvincible;
