@@ -21,7 +21,8 @@ public class YellowHazmat : MonoBehaviour
     void Update()
     {
         float distance = (transform.position - target.transform.position).magnitude;
-        if (distance < followRange)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, (target.transform.position - transform.position).normalized, followRange, LayerMask.GetMask("Player", "Wall"));
+        if (hit && hit.collider.tag == "Player")
         {
             yellowHazmatRigidBody2D.velocity = (target.transform.position - transform.position).normalized * followSpeed;
             transform.GetChild(0).gameObject.SetActive(true);
@@ -72,6 +73,7 @@ public class YellowHazmat : MonoBehaviour
             player.TakeDamage((target.transform.position - transform.position).normalized, 10, true);
         }
     }
+
     private void SetAnimatorToIdle()
     {
         animator.SetBool("isMovingLeft", false);
@@ -79,3 +81,4 @@ public class YellowHazmat : MonoBehaviour
         animator.SetBool("isMovingDown", false);
     }
 }
+
