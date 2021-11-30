@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 83f12856b9f761b4295cf992382f3985
+guid: f23f5872e9ba81142b0e98e58c4e01c8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7327949687151864162
-    second: EMP_0
+      213: -6352559009169823116
+    second: turrets_0
   - first:
-      213: -3647592240675028480
-    second: EMP_1
+      213: -5726386098567167829
+    second: turrets_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -48,11 +48,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 13
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -73,10 +73,10 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 2
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -85,10 +85,10 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 2
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -97,43 +97,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EMP_0
+      name: turrets_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 25
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2692f925a6b12b560800000000000000
-      internalID: 7327949687151864162
+      spriteID: 47aa9bb0d3d27d7a0800000000000000
+      internalID: -6352559009169823116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EMP_1
+      name: turrets_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 25
         y: 0
-        width: 16
-        height: 16
+        width: 25
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0020811de26216dc0800000000000000
-      internalID: -3647592240675028480
+      spriteID: ba04b2cde2ac780b0800000000000000
+      internalID: -5726386098567167829
       vertices: []
       indices: 
       edges: []
