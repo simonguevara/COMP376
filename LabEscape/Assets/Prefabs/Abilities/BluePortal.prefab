@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8143767371708811122}
   - component: {fileID: 8875892411828170774}
   - component: {fileID: 7892260288982523775}
+  - component: {fileID: 6490141605073143406}
   m_Layer: 0
   m_Name: BluePortal
   m_TagString: BluePortal
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 1949451801
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0, g: 0.050397873, b: 1, a: 1}
+  m_Sprite: {fileID: 4999696723262778034, guid: 36fc34aaa1ed2404f98fede7e38d2de7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,3 +113,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9f58126557d2f4aa41ebb98dd62d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6490141605073143406
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332437960093745075}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ead5c8d832ecfb47827538752d4d96b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

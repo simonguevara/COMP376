@@ -6,7 +6,7 @@ public class ExplosionScript : MonoBehaviour
 {
 
     public GameObject EMP;
-    public float timeVisible = 0.1f;
+    public float timeVisible = 0.3f;
     private float radius;
 
     // Start is called before the first frame update
