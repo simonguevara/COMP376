@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 6420168627054550528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.08, y: 5.79229, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.66298604, y: 0.66298604, z: 0.66298604}
   m_Children:
   - {fileID: 8737284812293911880}
   m_Father: {fileID: 0}
@@ -185,5 +185,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPackPrefab: {fileID: 176923248758321110, guid: 6314db99585f2544fb419c2b7b27f85c, type: 3}
   healthPackDropChance: 0.1
-  healthPoints: 10
+  healthPoints: 3
   isStunned: 0
