@@ -195,9 +195,12 @@ GameObject:
   - component: {fileID: 77602692}
   - component: {fileID: 77602691}
   - component: {fileID: 77602690}
+  - component: {fileID: 77602693}
+  - component: {fileID: 77602695}
+  - component: {fileID: 77602694}
   m_Layer: 0
   m_Name: DialogTest
-  m_TagString: Untagged
+  m_TagString: Dialogue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,8 +242,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 26358813
-  m_SortingLayer: 2
+  m_SortingLayerID: 1949451801
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 4623627516230961500, guid: 43121e789aa7d5b44a2bda19286a91dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -277,9 +280,83 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8, y: 1.1}
+  m_AnchoredPosition: {x: 1.67, y: 0.73}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &77602693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77602689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8062f0743ef73554aaf20f766975f139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - Hello1
+    - asdasdsad dasds asd
+    - Bye 3 dasd  aaa dsda
+--- !u!61 &77602694
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77602689}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3}
+  m_EdgeRadius: 0
+--- !u!61 &77602695
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77602689}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!1 &164728590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 150610989703047000, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+  m_PrefabInstance: {fileID: 699551429836381966}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &597686806 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6420168627054550528, guid: 115f9c51ce82f1247b37ca7054b2e3de, type: 3}
@@ -1904,6 +1981,10 @@ PrefabInstance:
       propertyPath: hasShield
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 164728590}
     - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
       propertyPath: hasPortalGun
       value: 1
