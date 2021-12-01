@@ -42,6 +42,7 @@ public class PlayerSam : MonoBehaviour
     public AudioClip recallClip;
     public AudioClip getHurtClip;
     public AudioClip healClip;
+    public AudioClip teleportClip;
 
 
     // Invincibility timer
@@ -597,6 +598,9 @@ public class PlayerSam : MonoBehaviour
                 GameObject bluePortal = GameObject.FindWithTag("BluePortal");
                 transform.position = bluePortal.transform.position;
             }
+
+            //Audio
+            audioSource.PlayOneShot(teleportClip);
         }
     }
 
