@@ -205,7 +205,7 @@ public class PlayerSam : MonoBehaviour
 
     private void createImage()
     {
-        imagesArray[oldestImageIndex] = Instantiate(imagePrefab, transform.position, Quaternion.identity);
+        imagesArray[oldestImageIndex] = Instantiate(imagePrefab, transform.position - new Vector3(0.0f, -0.25f, 0.0f), Quaternion.identity); ;
         imagesArray[oldestImageIndex].GetComponent<ImageScript>().hp = health;
         oldestImageIndex = (oldestImageIndex + 1) % numberOfImages;
         if (oldestImageIndex < 0)

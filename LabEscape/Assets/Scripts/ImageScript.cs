@@ -12,7 +12,7 @@ public class ImageScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        duration = player.GetComponent<PlayerSam>().imageInterval * player.GetComponent<PlayerSam>().numberOfImages*3;
+        duration = player.GetComponent<PlayerSam>().imageInterval * (player.GetComponent<PlayerSam>().numberOfImages + 1);
         Destroy(gameObject, duration);
     }
  
