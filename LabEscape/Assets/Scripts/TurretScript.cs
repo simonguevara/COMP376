@@ -11,6 +11,8 @@ public class TurretScript : MonoBehaviour
     bool seesPlayer = false;
     public float followRange = 20.0f;
 
+    [SerializeField] private Transform turretoffset;
+
     public GameObject bulletPrefab;
 
     private EnemyScript enemyScript;
@@ -26,13 +28,13 @@ public class TurretScript : MonoBehaviour
 
     private void Update()
     {
-
-
         float distance = (transform.position - player.transform.position).magnitude;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, followRange, LayerMask.GetMask("Player", "Wall"));
+
         if (hit && hit.collider.tag == "Player")
         {
             seesPlayer = true;
+            Debug.Log("Sees Player");
         }
         else
         {
@@ -45,9 +47,9 @@ public class TurretScript : MonoBehaviour
             
         if (!enemyScript.isStunned && seesPlayer)
         {
-            GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject newBullet = Instantiate(bulletPrefab, turretoffset.position, Quaternion.identity);
             newBullet.GetComponent<EnemyBullet>().setDamage(dmg);
-            newBullet.GetComponent<EnemyBullet>().setDirection(player.transform.position - transform.position);
+            newBullet.GetComponent<EnemyBullet>().setDirection(player.transform.position - turretoffset.position);
         }
     }
 }

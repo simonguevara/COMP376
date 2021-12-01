@@ -2018,7 +2018,7 @@ GameObject:
   - component: {fileID: 2042669824}
   - component: {fileID: 2042669823}
   - component: {fileID: 2042669822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -3122,6 +3122,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 150610989703047000, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_TagString
+      value: DialogueBox
+      objectReference: {fileID: 0}
     - target: {fileID: 699551429281011986, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: playerHealth
       value: 
