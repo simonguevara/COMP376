@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87411eb460629194d9c6443015c2570d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportClip: {fileID: 8300000, guid: 1801bb8b9f15b274d8f0594e16a61a6f, type: 3}
 --- !u!95 &2001297711196051084
 Animator:
   serializedVersion: 3

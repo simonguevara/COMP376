@@ -5,7 +5,14 @@ using UnityEngine;
 public class RedPortalScript : MonoBehaviour
 {
     private PlayerSam.Color color = PlayerSam.Color.Red;
+    private AudioSource audioSource;
+    public AudioClip teleportClip;
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(teleportClip);
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {

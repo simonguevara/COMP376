@@ -6,6 +6,15 @@ public class BluePortalScript : MonoBehaviour
 {
     private PlayerSam.Color color = PlayerSam.Color.Blue;
 
+    private AudioSource audioSource;
+    public AudioClip teleportClip;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(teleportClip);
+    }
+
 
     void OnTriggerEnter2D(Collider2D col)
     {

@@ -17,14 +17,6 @@ public class PlayerSam : MonoBehaviour
     private CharacterController CharacterController;
     private PlayerControls playerControls;
     private SpriteRenderer sprite;
-
-    internal void heal(int healValue)
-    {
-        health += healValue;
-        if (health > maxHealth)
-            health = maxHealth;
-    }
-
     private PlayerInput playerInput;
 
     private Vector2 movement = Vector2.zero;
@@ -42,6 +34,17 @@ public class PlayerSam : MonoBehaviour
     [Header("Health")]
     public int health = 10;
     public int maxHealth = 10;
+
+
+    //Sounds
+    [Header("Sounds")]
+    public AudioClip shootClip;
+    public AudioClip EMPLaunchClip;
+    public AudioClip shieldClip;
+    public AudioClip recallClip;
+    public AudioClip getHurtClip;
+    public AudioClip healClip;
+    public AudioClip teleportClip;
 
 
     // Invincibility timer
@@ -295,6 +298,9 @@ public class PlayerSam : MonoBehaviour
             energy -= portalEnergyCost;
             GameObject newBullet = Instantiate(redPortalProjectilePrefab, transform.position, Quaternion.identity);
             newBullet.GetComponent<PortalProjectileScript>().setDirection(aim.normalized);
+
+            //Audio
+            audioSource.PlayOneShot(shootClip);
         }
     }
 
@@ -306,6 +312,9 @@ public class PlayerSam : MonoBehaviour
             GameObject newBullet = Instantiate(bluePortalProjectilePrefab, transform.position, Quaternion.identity);
             newBullet.GetComponent<PortalProjectileScript>().setDirection(aim.normalized);
             newBullet.GetComponent<PortalProjectileScript>().isRed = false;
+
+            //Audio
+            audioSource.PlayOneShot(shootClip);
         }
     }
 
@@ -323,6 +332,9 @@ public class PlayerSam : MonoBehaviour
             recallHealth = imagesArraySnapShot[oldestImageIndex].GetComponent<ImageScript>().hp;
             timeOnCurrentImage = 1f;
             currentAnimationIndex = (oldestImageIndexSnapShot);
+
+            //Audio
+            audioSource.PlayOneShot(recallClip);
         }
     }
 
@@ -344,6 +356,9 @@ public class PlayerSam : MonoBehaviour
             energy -= EMPEnergyCost;
             isEMPCD = true;
             Invoke("EMPOffCD", 0.5f);
+
+            //Audio
+            audioSource.PlayOneShot(EMPLaunchClip);
         }
 
     }
@@ -363,6 +378,9 @@ public class PlayerSam : MonoBehaviour
             shield.GetComponent<ShieldScript>().setTimer(shieldDuration);
             energy -= shieldEnergyCost;
 
+            //Audio
+            audioSource.PlayOneShot(shieldClip);
+
         }
     }
 
@@ -378,6 +396,9 @@ public class PlayerSam : MonoBehaviour
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         //TO DO COntroller right joystick for direction  
         newBullet.GetComponent<PlayerBullet>().setDirection(aim.normalized);
+
+        //Audio
+        audioSource.PlayOneShot(shootClip);
 
     }
 
@@ -555,6 +576,9 @@ public class PlayerSam : MonoBehaviour
             //Hit feedback
             sprite.color = new UnityEngine.Color(1, 0, 0, 1);
             Invoke("resetColor", 0.2f);
+
+            //Audio
+            audioSource.PlayOneShot(getHurtClip);
         }
     }
 
@@ -565,6 +589,24 @@ public class PlayerSam : MonoBehaviour
         //Hit feedback
         sprite.color = new UnityEngine.Color(1, 0, 0, 1);
         Invoke("resetColor", 0.2f);
+
+        //Audio
+        audioSource.PlayOneShot(getHurtClip);
+    }
+
+    internal void heal(int healValue)
+    {
+        health += healValue;
+        if (health > maxHealth)
+            health = maxHealth;
+
+        //Heal feedback
+        sprite.color = new UnityEngine.Color(0, 1, 0, 1);
+        Invoke("resetColor", 0.2f);
+        //DO HEAL SOUND
+        //Audio
+        audioSource.PlayOneShot(healClip);
+
     }
 
     public void teleport(Color color)
@@ -582,6 +624,9 @@ public class PlayerSam : MonoBehaviour
                 GameObject bluePortal = GameObject.FindWithTag("BluePortal");
                 transform.position = bluePortal.transform.position;
             }
+
+            //Audio
+            audioSource.PlayOneShot(teleportClip);
         }
     }
 
