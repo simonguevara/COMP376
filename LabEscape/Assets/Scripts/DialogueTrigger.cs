@@ -15,6 +15,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         collider = GetComponent<CircleCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        dialogueBox = GameObject.FindGameObjectWithTag("DialogueBox");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

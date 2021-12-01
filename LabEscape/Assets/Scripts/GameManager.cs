@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
 
     public bool isGadgetFound = false;
 
+    private GameObject dialogueBox;
+    private DialogueManager dialogueManager;
+    public Dialogue dialogue;
+
+    public Dialogue pickupNotFoundDialogue;
+
+
     public void loadNextLevel()
     {
         if(isGadgetFound)
@@ -25,6 +32,8 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerSam>();
+        dialogueBox = GameObject.FindGameObjectWithTag("DialogueBox");
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     private void Update()
