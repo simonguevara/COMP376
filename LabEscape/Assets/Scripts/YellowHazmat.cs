@@ -11,18 +11,21 @@ public class YellowHazmat : MonoBehaviour
     private GameObject target;
     private Animator animator;
 
+    private EnemyScript enemyScript;
+
     void Start()
     {
         yellowHazmatRigidBody2D = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player");
         animator = GetComponent<Animator>();
+        enemyScript = GetComponent<EnemyScript>();
     }
 
     void Update()
     {
         float distance = (transform.position - target.transform.position).magnitude;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, (target.transform.position - transform.position).normalized, followRange, LayerMask.GetMask("Player", "Wall"));
-        if (hit && hit.collider.tag == "Player")
+        if (hit && hit.collider.tag == "Player" && !enemyScript.isStunned)
         {
             yellowHazmatRigidBody2D.velocity = (target.transform.position - transform.position).normalized * followSpeed;
             transform.GetChild(0).gameObject.SetActive(true);
