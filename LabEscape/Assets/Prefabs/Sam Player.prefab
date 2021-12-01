@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3779131640022449002}
   - component: {fileID: 1693397516}
   - component: {fileID: 1693397523}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sam Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.010103226, y: -0.25258076}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -113,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.8}
+  m_Size: {x: 0.44690323, y: 0.3352511}
   m_EdgeRadius: 0
 --- !u!50 &5022951006672850617
 Rigidbody2D:
@@ -187,13 +187,13 @@ MonoBehaviour:
   isController: 0
   health: 10
   maxHealth: 10
-  hasBoots: 0
-  hasShield: 0
+  hasBoots: 1
+  hasShield: 1
   hasGun: 1
-  hasHazmat: 0
-  hasEMP: 0
-  hasRecall: 0
-  hasPortalGun: 0
+  hasHazmat: 1
+  hasEMP: 1
+  hasRecall: 1
+  hasPortalGun: 1
   maxEnergy: 10
   energy: 10
   regenTimeStep: 1
@@ -217,8 +217,8 @@ MonoBehaviour:
   imagePrefab: {fileID: 1277091446717238726, guid: 80dd2bc24dff20341a65e705d1c888ed, type: 3}
   numberOfImages: 6
   imageInterval: 0.5
-  redPortalProjectilePrefab: {fileID: 0}
-  bluePortalProjectilePrefab: {fileID: 0}
+  redPortalProjectilePrefab: {fileID: 3092730393580351866, guid: 3f89d545675c7e54c85ae4983ca7b98b, type: 3}
+  bluePortalProjectilePrefab: {fileID: 2588248072923912692, guid: 173ed7719b42de3438682a9c735be50c, type: 3}
   portalEnergyCost: 1
 --- !u!114 &1693397523
 MonoBehaviour:
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 5022951006905242785}
   - component: {fileID: 5022951006905242718}
   - component: {fileID: 5022951006905242716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
