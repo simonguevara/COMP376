@@ -10,11 +10,15 @@ public class EnemyScript : MonoBehaviour
 
     public int healthPoints = 10;
 
+    private SpriteRenderer sprite;
+    private AudioSource audioSource;
+
     public bool isStunned = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sprite = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +34,14 @@ public class EnemyScript : MonoBehaviour
     public void takeDamage(int damage)
     {
         healthPoints -= damage;
+        sprite.color = new Color(1, 0, 0, 1);
+        Invoke("resetColor", 0.2f);
+        //Do sound
+    }
+
+    private void resetColor()
+    {
+        sprite.color = new Color(1, 1, 1, 1);
     }
 
     internal void EMP(float stunTime)

@@ -14,6 +14,7 @@ public class PlayerSam : MonoBehaviour
 
     private CharacterController CharacterController;
     private PlayerControls playerControls;
+    private SpriteRenderer sprite;
 
     internal void heal(int healValue)
     {
@@ -30,6 +31,7 @@ public class PlayerSam : MonoBehaviour
     private Rigidbody2D playerRigidBody2D;
     private SpriteRenderer mSpriteRenderer;
     private Animator mAnimator;
+    private AudioSource audioSource;
 
     //
     String currentInputScheme;
@@ -43,13 +45,6 @@ public class PlayerSam : MonoBehaviour
     // Invincibility timer
     [Header("Hitstun/Invicibility")]
     float kInvincibilityDuration = 1.0f;
-
-    internal void TakeRadiationDamage(int damage)
-    {
-        health -= damage;
-        //Damage feedback
-    }
-
     float mInvincibleTimer;
 
     bool mInvincible;
@@ -149,6 +144,8 @@ public class PlayerSam : MonoBehaviour
         CharacterController = GetComponent<CharacterController>();
         playerControls = new PlayerControls();
         playerInput = GetComponent<PlayerInput>();
+        sprite = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         //For the recall ability
         setupImagesArray();
@@ -528,7 +525,20 @@ public class PlayerSam : MonoBehaviour
             mInvincible = true;
             isStunned = true;
             health -= dmg;
+
+            //Hit feedback
+            sprite.color = new UnityEngine.Color(1, 0, 0, 1);
+            Invoke("resetColor", 0.2f);
         }
+    }
+
+    internal void TakeRadiationDamage(int damage)
+    {
+        health -= damage;
+        //Damage feedback
+        //Hit feedback
+        sprite.color = new UnityEngine.Color(1, 0, 0, 1);
+        Invoke("resetColor", 0.2f);
     }
 
     public void teleport(Color color)
@@ -562,5 +572,10 @@ public class PlayerSam : MonoBehaviour
         mAnimator.SetBool("isMovingLeft", false);
         mAnimator.SetBool("isMovingUp", false);
         mAnimator.SetBool("isMovingDown", false);
+    }
+
+    private void resetColor()
+    {
+        sprite.color = new UnityEngine.Color(1, 1, 1, 1);
     }
 }
