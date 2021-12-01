@@ -198,8 +198,8 @@ MonoBehaviour:
   energy: 10
   regenTimeStep: 1
   regenAmount: 1
-  dashTime: 0.1
-  dashDistance: 3
+  dashTime: 0.3
+  dashDistance: 3.5
   dashCost: 1
   shootDelay: 0.2
   bulletPrefab: {fileID: 244928184974310066, guid: 342948a23fca1424e9e2d356a044b588, type: 3}
