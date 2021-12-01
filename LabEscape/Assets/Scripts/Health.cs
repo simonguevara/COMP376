@@ -25,7 +25,8 @@ public class Health : MonoBehaviour
     public void DamagePlayer( int damage )
     {
         curHealth -= damage;
-
-        healthBar.SetHealth( curHealth );
+        if(healthBar != null){
+            healthBar.SetHealth( curHealth );
+        }
     }
 }

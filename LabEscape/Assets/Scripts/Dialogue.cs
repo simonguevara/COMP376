@@ -6,5 +6,6 @@ using UnityEngine;
 public class Dialogue 
 {
     // Start is called before the first frame update
+    [TextArea(3,10)]
     public string[] sentences;
 }

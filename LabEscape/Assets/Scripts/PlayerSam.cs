@@ -12,6 +12,8 @@ public class PlayerSam : MonoBehaviour
 
     [SerializeField] private bool isController = false;
 
+    [SerializeField] GameObject dialogueBox;
+
     private CharacterController CharacterController;
     private PlayerControls playerControls;
     private SpriteRenderer sprite;
@@ -255,6 +257,7 @@ public class PlayerSam : MonoBehaviour
             {
                 Debug.Log("Shield");
                 shield();
+                checkIfInDialogueZone();
             }
 
             if (playerControls.Controls.EMP.triggered && !isEMPCD && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone) && hasEMP)
@@ -421,6 +424,29 @@ public class PlayerSam : MonoBehaviour
                 isStunned = false;
                 hitStunTimer = 0.0f;
             }
+        }
+    }
+
+    private void checkIfInDialogueZone(){
+        GameObject[]  DMs = GameObject.FindGameObjectsWithTag("Dialogue");
+        float closest = 100f;
+        DialogueTrigger close = DMs.Length > 0 ? DMs[0].GetComponent<DialogueTrigger>() : null;
+        foreach (GameObject DM in DMs)
+        {
+            if (Vector3.Distance(DM.transform.position, transform.position) < closest){
+                close = DM.GetComponent<DialogueTrigger>();
+                closest = Vector3.Distance(DM.transform.position, transform.position);
+            }
+        }
+        if(close != null){
+            //dialogue already open
+          //  if(dialogueBox.activeSelf){
+           //     GameObject.Find("DialogueManager").GetComponent<DialogueManager>().DisplayNextSentence();
+            //}
+            
+            //GameObject dialogueBox = GameObject.Find("DialogBox");
+            dialogueBox.SetActive(true);
+            close.triggerDialogue();
         }
     }
 
