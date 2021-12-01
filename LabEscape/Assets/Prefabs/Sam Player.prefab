@@ -187,6 +187,12 @@ MonoBehaviour:
   isController: 0
   health: 10
   maxHealth: 10
+  shootClip: {fileID: 8300000, guid: 0a8e0bbd9f931884ba45779e2b08bdef, type: 3}
+  EMPLaunchClip: {fileID: 8300000, guid: 8924b204270debf47847701035869045, type: 3}
+  shieldClip: {fileID: 8300000, guid: 64cb713a77e60464d8b403ce1675ad3a, type: 3}
+  recallClip: {fileID: 8300000, guid: f29a43906cf7e5e41adcf215d1de4464, type: 3}
+  getHurtClip: {fileID: 8300000, guid: 2bbccca42e5c68a4f8246fee66c5b50b, type: 3}
+  healClip: {fileID: 8300000, guid: df7a549978dea0a4c9dea420dd9b87d0, type: 3}
   hasBoots: 1
   hasShield: 1
   hasGun: 1

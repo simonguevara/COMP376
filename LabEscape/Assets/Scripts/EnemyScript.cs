@@ -48,11 +48,14 @@ public class EnemyScript : MonoBehaviour
     {
         isStunned = true;
         Invoke("unstun", stunTime);
+        //Hit feedback
+        sprite.color = new UnityEngine.Color(1, 1, 0, 1);
     }
 
     private void unstun()
     {
         isStunned = false;
+        resetColor();
     }
 
     private void OnDeath()
