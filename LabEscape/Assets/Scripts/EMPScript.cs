@@ -36,6 +36,8 @@ public class EMPScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("EMP Hit :"+col.tag);
+
         if (col.gameObject.tag == "Enemy")
         {
             //col.gameObject.GetComponent<EnemyScript>.takeDamage(damage)

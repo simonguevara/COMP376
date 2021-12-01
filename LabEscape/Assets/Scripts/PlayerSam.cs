@@ -14,6 +14,14 @@ public class PlayerSam : MonoBehaviour
 
     private CharacterController CharacterController;
     private PlayerControls playerControls;
+
+    internal void heal(int healValue)
+    {
+        health += healValue;
+        if (health > maxHealth)
+            health = maxHealth;
+    }
+
     private PlayerInput playerInput;
 
     private Vector2 movement = Vector2.zero;
