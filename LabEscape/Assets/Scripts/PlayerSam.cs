@@ -563,7 +563,7 @@ public class PlayerSam : MonoBehaviour
 
     public void TakeDamage(Vector2 direction, int dmg)
     {
-        if (!mInvincible || isDashing)
+        if (!mInvincible && !isDashing)
         {
             Vector2 forceDirection = direction.normalized * kDamagePushForce;
             playerRigidBody2D.velocity = Vector2.zero;
@@ -584,14 +584,17 @@ public class PlayerSam : MonoBehaviour
 
     internal void TakeRadiationDamage(int damage)
     {
-        health -= damage;
-        //Damage feedback
-        //Hit feedback
-        sprite.color = new UnityEngine.Color(1, 0, 0, 1);
-        Invoke("resetColor", 0.2f);
+        if (!mInvincible && !isDashing)
+        {
+            health -= damage;
+            //Damage feedback
+            //Hit feedback
+            sprite.color = new UnityEngine.Color(1, 0, 0, 1);
+            Invoke("resetColor", 0.2f);
 
-        //Audio
-        audioSource.PlayOneShot(getHurtClip);
+            //Audio
+            audioSource.PlayOneShot(getHurtClip);
+        }
     }
 
     internal void heal(int healValue)
