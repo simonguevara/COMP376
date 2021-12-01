@@ -23,7 +23,6 @@ public class YellowHazmat : MonoBehaviour
 
     void Update()
     {
-        float distance = (transform.position - target.transform.position).magnitude;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, (target.transform.position - transform.position).normalized, followRange, LayerMask.GetMask("Player", "Wall"));
         if (hit && hit.collider.tag == "Player" && !enemyScript.isStunned)
         {
