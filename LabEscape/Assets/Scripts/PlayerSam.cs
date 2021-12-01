@@ -66,7 +66,7 @@ public class PlayerSam : MonoBehaviour
     public bool hasEMP = false;
     public bool hasRecall = false;
     public bool hasPortalGun = false;
-    
+
 
     //Energy
     [Header("Energy Settings")]
@@ -125,9 +125,9 @@ public class PlayerSam : MonoBehaviour
     //Portal ability
     public enum Color
     {
-       Red,
-       Blue,
-       none
+        Red,
+        Blue,
+        none
     }
     [Header("PortalSettings")]
     private Color lastTeleportedBy = Color.none;
@@ -157,7 +157,7 @@ public class PlayerSam : MonoBehaviour
     private void setupImagesArray()
     {
         imagesArray = new GameObject[numberOfImages];
-        for(int i = 0; i < imagesArray.Length; i++)
+        for (int i = 0; i < imagesArray.Length; i++)
         {
             imagesArray[i] = Instantiate(imagePrefab, transform.position, Quaternion.identity);
             imagesArray[i].GetComponent<ImageScript>().hp = 10;
@@ -186,7 +186,7 @@ public class PlayerSam : MonoBehaviour
     {
         if (!isStunned)
         {
-            
+
             animate();
         }
 
@@ -221,12 +221,12 @@ public class PlayerSam : MonoBehaviour
         movement = playerControls.Controls.Movement.ReadValue<Vector2>();
         aim = playerControls.Controls.Aim.ReadValue<Vector2>();
 
-        if(currentInputScheme == "MKB")
+        if (currentInputScheme == "MKB")
         {
-            //DO MOUSE AIM HERE
-            //aim = w/e
+            controllerDeadzone = 0;
+            aim.y = aim.y - Screen.height / 2;
+            aim.x = aim.x - Screen.width / 2;
         }
- 
 
         if (!isStunned)
         {
@@ -234,7 +234,7 @@ public class PlayerSam : MonoBehaviour
             Debug.Log("LT:" + playerControls.Controls.EMP.triggered);
 
 
-            if (playerControls.Controls.Shoot.triggered && !isShootOnCD  && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            if (playerControls.Controls.Shoot.triggered && !isShootOnCD && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
             {
                 Debug.Log("Pew pew!");
                 shoot();
@@ -303,7 +303,7 @@ public class PlayerSam : MonoBehaviour
 
     private void Recall()
     {
-        if(energy>= recallEnergyCost)
+        if (energy >= recallEnergyCost)
         {
             isRecalling = true;
             energy -= recallEnergyCost;
@@ -329,7 +329,7 @@ public class PlayerSam : MonoBehaviour
 
     private void EMP()
     {
-        if(energy >= EMPEnergyCost)
+        if (energy >= EMPEnergyCost)
         {
             GameObject newEMP = Instantiate(EMPPrefab, transform.position, Quaternion.identity);
             newEMP.GetComponent<EMPScript>().setDirection(aim.normalized);
@@ -337,7 +337,7 @@ public class PlayerSam : MonoBehaviour
             isEMPCD = true;
             Invoke("EMPOffCD", 0.5f);
         }
-         
+
     }
 
     private void EMPOffCD()
@@ -370,7 +370,7 @@ public class PlayerSam : MonoBehaviour
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         //TO DO COntroller right joystick for direction  
         newBullet.GetComponent<PlayerBullet>().setDirection(aim.normalized);
-        
+
     }
 
     private void shootOffCooldown()
@@ -430,7 +430,7 @@ public class PlayerSam : MonoBehaviour
         {
             dashMovement();
         }
-        else if(!isStunned)
+        else if (!isStunned)
         {
             normalMovement();
         }
@@ -438,14 +438,14 @@ public class PlayerSam : MonoBehaviour
 
     private void recallMovement()
     {
-        
+
         timeOnCurrentImage += Time.deltaTime;
 
         float timePerImage = recallAnimationTime / numberOfImages;
 
-        if(timeOnCurrentImage >= timePerImage)
+        if (timeOnCurrentImage >= timePerImage)
         {
-            currentAnimationIndex = (currentAnimationIndex-1)%numberOfImages;
+            currentAnimationIndex = (currentAnimationIndex - 1) % numberOfImages;
             if (currentAnimationIndex < 0)
                 currentAnimationIndex += numberOfImages;
             timeOnCurrentImage = 0f;
@@ -457,13 +457,13 @@ public class PlayerSam : MonoBehaviour
 
     private void dashMovement()
     {
-        playerRigidBody2D.velocity = dashDirection.normalized * dashDistance/dashTime;
+        playerRigidBody2D.velocity = dashDirection.normalized * dashDistance / dashTime;
     }
 
     private void normalMovement()
     {
         //Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if(Math.Abs(movement.x) >= controllerDeadzone || Math.Abs(movement.y) >= controllerDeadzone)
+        if (Math.Abs(movement.x) >= controllerDeadzone || Math.Abs(movement.y) >= controllerDeadzone)
         {
             playerRigidBody2D.velocity = movement * playerSpeed;
         }
@@ -471,31 +471,30 @@ public class PlayerSam : MonoBehaviour
         {
             playerRigidBody2D.velocity = Vector2.zero;
         }
-        
+
     }
 
     private void animate()
     {
         SetAnimatorToIdle();
-        //Debug.Log("aim:"+aim);
-        if (Math.Abs(aim.x) > controllerDeadzone)
+        if (movement.x > controllerDeadzone)
         {
             SetAnimatorToIdle();
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             mAnimator.SetBool("isMovingLeft", true);
         }
-        else if (Math.Abs(aim.x) < controllerDeadzone)
+        else if (movement.x < -controllerDeadzone)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             SetAnimatorToIdle();
             mAnimator.SetBool("isMovingLeft", true);
         }
-        if (Math.Abs(aim.y) > controllerDeadzone)
+        if (movement.y > controllerDeadzone)
         {
             SetAnimatorToIdle();
             mAnimator.SetBool("isMovingUp", true);
         }
-        else if (Math.Abs(aim.y) < controllerDeadzone)
+        else if (movement.y < -controllerDeadzone)
         {
             SetAnimatorToIdle();
             mAnimator.SetBool("isMovingDown", true);
@@ -526,10 +525,10 @@ public class PlayerSam : MonoBehaviour
 
     public void teleport(Color color)
     {
-        if(lastTeleportedBy == Color.none)
+        if (lastTeleportedBy == Color.none)
         {
             lastTeleportedBy = color;
-            if(lastTeleportedBy == Color.Blue)
+            if (lastTeleportedBy == Color.Blue)
             {
                 GameObject redPortal = GameObject.FindWithTag("RedPortal");
                 transform.position = redPortal.transform.position;
@@ -539,12 +538,12 @@ public class PlayerSam : MonoBehaviour
                 GameObject bluePortal = GameObject.FindWithTag("BluePortal");
                 transform.position = bluePortal.transform.position;
             }
-        } 
+        }
     }
 
     public void exitTeleporterZone(Color color)
     {
-        if(color != lastTeleportedBy)
+        if (color != lastTeleportedBy)
         {
             lastTeleportedBy = Color.none;
         }
