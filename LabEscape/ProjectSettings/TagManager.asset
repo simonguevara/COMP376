@@ -10,6 +10,8 @@ TagManager:
   - RedPortal
   - BluePortal
   - Dialogue
+  - GameManager
+  - DialogueBox
   layers:
   - Default
   - TransparentFX

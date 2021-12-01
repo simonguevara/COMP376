@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2052065254521153667}
   - component: {fileID: 5547664997386071054}
   - component: {fileID: 5878974328456812801}
+  - component: {fileID: -6219198105729108241}
   m_Layer: 0
   m_Name: RecallPickup
   m_TagString: Untagged
@@ -112,3 +113,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-6219198105729108241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973429532858639229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8062f0743ef73554aaf20f766975f139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences: []
+  dialogueBox: {fileID: 0}

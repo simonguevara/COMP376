@@ -12,7 +12,7 @@ public class ShieldPickupScript : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<PlayerSam>().hasShield = true;
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isGadgetFound = true;
             //Do events
-            Destroy(gameObject);
+            //Destroy(gameObject);
 
         }
     }

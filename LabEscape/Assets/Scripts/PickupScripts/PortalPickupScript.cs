@@ -12,7 +12,7 @@ public class PortalPickupScript : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<PlayerSam>().hasPortalGun = true;
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isGadgetFound = true;
             //Do events
-            Destroy(gameObject);
+            //sDestroy(gameObject);
         }
     }
 }
