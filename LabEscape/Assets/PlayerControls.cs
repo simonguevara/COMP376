@@ -89,6 +89,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Scroll Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""c823e9f3-769b-47a9-8b8d-2f72451062a9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -333,6 +341,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""BluePortal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6730d5ad-69f5-41ed-a2b0-d22c71e8b09c"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MKB"",
+                    ""action"": ""Scroll Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7619d1b-878c-4ff9-b93d-8e8e82bb3d6a"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Scroll Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -372,6 +402,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Controls_Recall = m_Controls.FindAction("Recall", throwIfNotFound: true);
         m_Controls_RedPortal = m_Controls.FindAction("RedPortal", throwIfNotFound: true);
         m_Controls_BluePortal = m_Controls.FindAction("BluePortal", throwIfNotFound: true);
+        m_Controls_ScrollDown = m_Controls.FindAction("Scroll Down", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -430,6 +461,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Controls_Recall;
     private readonly InputAction m_Controls_RedPortal;
     private readonly InputAction m_Controls_BluePortal;
+    private readonly InputAction m_Controls_ScrollDown;
     public struct ControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -443,6 +475,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Recall => m_Wrapper.m_Controls_Recall;
         public InputAction @RedPortal => m_Wrapper.m_Controls_RedPortal;
         public InputAction @BluePortal => m_Wrapper.m_Controls_BluePortal;
+        public InputAction @ScrollDown => m_Wrapper.m_Controls_ScrollDown;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -479,6 +512,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @BluePortal.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnBluePortal;
                 @BluePortal.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnBluePortal;
                 @BluePortal.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnBluePortal;
+                @ScrollDown.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnScrollDown;
+                @ScrollDown.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnScrollDown;
+                @ScrollDown.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnScrollDown;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -510,6 +546,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @BluePortal.started += instance.OnBluePortal;
                 @BluePortal.performed += instance.OnBluePortal;
                 @BluePortal.canceled += instance.OnBluePortal;
+                @ScrollDown.started += instance.OnScrollDown;
+                @ScrollDown.performed += instance.OnScrollDown;
+                @ScrollDown.canceled += instance.OnScrollDown;
             }
         }
     }
@@ -543,5 +582,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRecall(InputAction.CallbackContext context);
         void OnRedPortal(InputAction.CallbackContext context);
         void OnBluePortal(InputAction.CallbackContext context);
+        void OnScrollDown(InputAction.CallbackContext context);
     }
 }
