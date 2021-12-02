@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void findGadget()
+    {
+        isGadgetFound = true;
+    }
+
 
     //DO LEVEL START / END DIALOG STORY STUFF
 }

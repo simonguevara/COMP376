@@ -652,4 +652,9 @@ public class PlayerSam : MonoBehaviour
     {
         sprite.color = new UnityEngine.Color(1, 1, 1, 1);
     }
+
+    public void setHasBoots()
+    {
+        hasBoots = true;
+    }
 }
