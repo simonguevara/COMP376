@@ -77,7 +77,7 @@ public class EnemyScript : MonoBehaviour
 
         //Animator trigger
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
-        Invoke("DropHealthPack", 1f);
+        Invoke("DropHealthPack", 0.9f);
     }
 
     private void DropHealthPack()
