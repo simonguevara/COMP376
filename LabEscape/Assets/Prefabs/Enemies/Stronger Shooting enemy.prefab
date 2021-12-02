@@ -186,7 +186,7 @@ MonoBehaviour:
   dmg: 1
   followRange: 40
   fireRange: 10
-  speed: 3
+  speed: 1
   bulletPrefab: {fileID: 4931021673962147885, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}
 --- !u!1001 &2816391768472103282
 PrefabInstance:

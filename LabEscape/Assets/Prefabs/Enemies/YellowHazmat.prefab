@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b98beb6c84234f4486cc5322866832b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 2
+  followSpeed: 4
   followRange: 10
 --- !u!114 &3141955125359619439
 MonoBehaviour:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPackPrefab: {fileID: 176923248758321110, guid: 6314db99585f2544fb419c2b7b27f85c, type: 3}
   healthPackDropChance: 9
-  healthPoints: 7
+  healthPoints: 5
   isStunned: 0
 --- !u!1001 &1782144090674974173
 PrefabInstance:
