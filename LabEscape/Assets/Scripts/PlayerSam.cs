@@ -58,7 +58,7 @@ public class PlayerSam : MonoBehaviour
     float hitStunTimer;
 
     // Damage effects
-    float kDamagePushForce = 10.0f;
+    public float kDamagePushForce = 2.0f;
 
     private bool mMoving;
     private bool mVertical;
