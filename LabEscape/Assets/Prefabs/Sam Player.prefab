@@ -279,7 +279,7 @@ MonoBehaviour:
   hasPortalGun: 0
   maxEnergy: 10
   energy: 10
-  regenTimeStep: 3
+  regenTimeStep: 2
   regenAmount: 1
   dashTime: 0.3
   dashDistance: 3.5
