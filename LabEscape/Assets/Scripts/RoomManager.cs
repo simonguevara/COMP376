@@ -17,7 +17,10 @@ public class RoomManager : MonoBehaviour
     {
         if (enimies.Count == 0)
         {
-            transform.GetChild(0).gameObject.SetActive(false);
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
     }
 
@@ -28,11 +31,19 @@ public class RoomManager : MonoBehaviour
         {
             enimies.Add(col);
         }
+        else if (col.tag == "Player")
+        {
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy")
+        if (col.tag == "Enemy")
         {
             enimies.Remove(col);
         }
