@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     public void startDialogue(Dialogue dialogue){
         sentences.Clear();
         Time.timeScale = 0;
+        audioSource.enabled = true;
         audioSource.PlayOneShot(typingClip);
 
         foreach (string sentence in dialogue.sentences){
@@ -57,5 +58,6 @@ public class DialogueManager : MonoBehaviour
         GameObject dialogueBox = GameObject.Find("DialogBox");
         dialogueBox.SetActive(false);
         Time.timeScale = 1;
+        audioSource.enabled = false;
     }
 }

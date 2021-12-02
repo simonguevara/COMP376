@@ -127,5 +127,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - Test
+    - The are boots allowing you to dash really fast!
   dialogueBox: {fileID: 0}

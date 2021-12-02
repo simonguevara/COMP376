@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Demo.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/Sam Test.unity
+    path: Assets/Scenes/Demo Scene.unity
     guid: aa64e9cdc95abdf4a9300d68999cc340
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
