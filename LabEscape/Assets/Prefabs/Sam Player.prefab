@@ -205,10 +205,10 @@ MonoBehaviour:
   hasEMP: 0
   hasRecall: 0
   hasPortalGun: 0
-  maxEnergy: 10
-  energy: 10
+  maxEnergy: 12
+  energy: 12
   regenTimeStep: 2
-  regenAmount: 1
+  regenAmount: 2
   dashTime: 0.3
   dashDistance: 3.5
   dashCost: 1
