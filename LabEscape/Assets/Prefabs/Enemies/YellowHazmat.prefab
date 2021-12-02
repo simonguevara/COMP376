@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8653811364094013658}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1294827268
 CircleCollider2D:
@@ -89,7 +89,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8653811364094013658}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1953877230
 MonoBehaviour:
@@ -161,9 +161,9 @@ Transform:
   m_LocalPosition: {x: 1.24, y: -2.11, z: -7.2453475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 6631167726168838469}
   - {fileID: 1953877229}
   - {fileID: 1294827267}
-  - {fileID: 6631167726168838469}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -323,7 +323,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4953345454536023192, guid: 3b217c5d046682449975fa1a74fdc0fa, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4953345454536023192, guid: 3b217c5d046682449975fa1a74fdc0fa, type: 3}
       propertyPath: m_LocalPosition.x
