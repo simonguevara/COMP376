@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class LaserTrapScript : MonoBehaviour
 {
 
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D myCollider;
+    private Light2D myLight2D;
 
     public float frequency = 3.0f;
     public float timeActive = 1.0f;
@@ -17,6 +19,7 @@ public class LaserTrapScript : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         myCollider = GetComponent<BoxCollider2D>();
+        myLight2D = GetComponent<Light2D>();
         InvokeRepeating("Activate", 0f, frequency);
         InvokeRepeating("Deactivate", timeActive, frequency);
     }
@@ -38,11 +41,13 @@ public class LaserTrapScript : MonoBehaviour
     {
         spriteRenderer.enabled = true;
         myCollider.enabled = true;
+        myLight2D.enabled = true;
     }
     private void Deactivate()
     {
         spriteRenderer.enabled = false;
         myCollider.enabled = false;
+        myLight2D.enabled = false;
     }
 
 }
