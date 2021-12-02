@@ -270,13 +270,13 @@ MonoBehaviour:
   healClip: {fileID: 8300000, guid: df7a549978dea0a4c9dea420dd9b87d0, type: 3}
   teleportClip: {fileID: 8300000, guid: 1801bb8b9f15b274d8f0594e16a61a6f, type: 3}
   kDamagePushForce: 2
-  hasBoots: 1
-  hasShield: 1
+  hasBoots: 0
+  hasShield: 0
   hasGun: 1
-  hasHazmat: 1
-  hasEMP: 1
-  hasRecall: 1
-  hasPortalGun: 1
+  hasHazmat: 0
+  hasEMP: 0
+  hasRecall: 0
+  hasPortalGun: 0
   maxEnergy: 10
   energy: 10
   regenTimeStep: 1
@@ -328,8 +328,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: MKB
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

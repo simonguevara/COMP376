@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129a2b384b1c635418d36a4f2f69a1d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeSound: {fileID: 0}
   dialogueText: {fileID: 2866103891110427909}
+  typingClip: {fileID: 8300000, guid: 1a62ed477a96ced449078cf9841ee962, type: 3}
 --- !u!82 &1467324796891870769
 AudioSource:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.55
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -823,7 +823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 354.5539, y: -38.066933}
+  m_AnchoredPosition: {x: 378, y: -90}
   m_SizeDelta: {x: 637.1078, y: 54.1339}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4562316520944563381
@@ -865,9 +865,10 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: New Text lets see whap happens if it gets very very long, still fine alright
+    can we make it biger then? It does row shift okay
 --- !u!1001 &2800335055736520076
 PrefabInstance:
   m_ObjectHideFlags: 0

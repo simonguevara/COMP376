@@ -56,14 +56,20 @@ public class EMPScript : MonoBehaviour
     private void explode()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log("Emp n : " + enemies.Length);
 
         for(int i = 0; i< enemies.Length; i++)
         {
             float distance = (transform.position - enemies[i].transform.position).magnitude;
 
-            if(distance <= explosionRange)
+            if (enemies[i].GetComponent<EnemyScript>() == null)
+                Debug.Log("Cant find enemy script");
+            Debug.Log(distance);
+
+            if (distance <= explosionRange)
             {
                 enemies[i].GetComponent<EnemyScript>().EMP(stunTime);
+                Debug.Log("Trying to EMP ");
             }
         }
 
