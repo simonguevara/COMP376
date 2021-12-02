@@ -9671,7 +9671,7 @@ GameObject:
   - component: {fileID: 8411430652445821435}
   - component: {fileID: 8411430652445821432}
   m_Layer: 0
-  m_Name: AoEBotAttack
+  m_Name: AlienAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14322,8 +14322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 595668a2b05ce0943a9006966e37f39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeDelay: 2
-  timeoutDelay: 2
+  explodeDelay: 0.75
+  timeoutDelay: 1.5
   explodeAnimation: {fileID: 8411430651346398292}
   light: {fileID: 8411430651976946399}
   aoeIndicator: {fileID: 8411430652208961236}

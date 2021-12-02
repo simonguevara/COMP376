@@ -21,9 +21,7 @@ public class ShootingEnemy : MonoBehaviour
 
     private EnemyScript enemyScript;
 
-    private Vector3 originalPosition;
-    float teleportDelay = 4f;
-    float _teleportDelay = 0f;
+    // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("Fire", 0.0f, fireRate);
@@ -31,7 +29,6 @@ public class ShootingEnemy : MonoBehaviour
         enemyScript = GetComponent<EnemyScript>();
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
-        originalPosition = transform.position;
     }
 
 
@@ -94,29 +91,6 @@ public class ShootingEnemy : MonoBehaviour
         else
         {
             seesPlayer = false;
-            //------sheri xd----------
-            //make enemy walk back to its original position so it doesnt stand near a wall or som
-            if (Mathf.Approximately((originalPosition - transform.position).magnitude, 0))
-            {
-                rigidbody.velocity = Vector2.zero;
-                transform.GetChild(0).gameObject.SetActive(false);
-                //SetAnimatorToIdle();
-            }
-            else
-            {
-                //walk back to original spot
-                transform.position = Vector3.MoveTowards(transform.position, originalPosition, speed * 0.33f * Time.deltaTime);
-                if (rigidbody.IsSleeping())//if enemy is stuck somewhere, teleport after 4 seconds:
-                {
-                    _teleportDelay += Time.deltaTime;
-                    if (_teleportDelay >= teleportDelay)
-                        transform.position = originalPosition;  //teleport if stuck 
-                }
-                else //if enemy is still moving, means not stuck, so no need to teleport xd
-                {
-                    _teleportDelay = 0f;
-                }
-            }
         }
 
 

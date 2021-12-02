@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AoEBotAttack : MonoBehaviour
+public class AlienAttack : MonoBehaviour
 {
     [SerializeField] float explodeDelay = 2f;
     float _explodeDelay = 0f;
@@ -10,11 +10,10 @@ public class AoEBotAttack : MonoBehaviour
     [SerializeField] float timeoutDelay = 2f;
     float _timeoutDelay = 0f;
 
-    
+
 
     //graphics refs
     [SerializeField] GameObject explodeAnimation;
-    [SerializeField] GameObject light;
     [SerializeField] GameObject aoeIndicator;
 
     GameObject player;
@@ -23,15 +22,17 @@ public class AoEBotAttack : MonoBehaviour
         player = GameObject.FindGameObjectsWithTag("Player")[0];
     }
 
-    
+
     bool checkedForDamage = false;
     bool movingTowardsPlayer = true;
     void Update()
     {
-        if (movingTowardsPlayer) {
+        if (movingTowardsPlayer)
+        {
             aoeIndicator.SetActive(false);
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 5 * Time.deltaTime);
-            if (Mathf.Approximately(Vector2.Distance(transform.position, player.transform.position), 0)) {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 6.5f * Time.deltaTime);
+            if (Mathf.Approximately(Vector2.Distance(transform.position, player.transform.position), 0))
+            {
                 movingTowardsPlayer = false;
                 gameObject.GetComponent<Collider2D>().enabled = true;
             }
@@ -40,7 +41,8 @@ public class AoEBotAttack : MonoBehaviour
         {
             _explodeDelay += Time.deltaTime;
             //about to explode, so disable light and indicator for a more responsive effect
-            if (_explodeDelay + 0.5f >= explodeDelay) {
+            if (_explodeDelay + 0.5f >= explodeDelay)
+            {
                 //light.SetActive(false);
                 aoeIndicator.SetActive(false);
             }
@@ -60,7 +62,8 @@ public class AoEBotAttack : MonoBehaviour
                 }
             }
         }
-        else {
+        else
+        {
             _timeoutDelay += Time.deltaTime;
             if (_timeoutDelay >= timeoutDelay)
             {
