@@ -284,7 +284,7 @@ MonoBehaviour:
   dashTime: 0.3
   dashDistance: 3.5
   dashCost: 1
-  shootDelay: 0.5
+  shootDelay: 0.3
   bulletPrefab: {fileID: 244928184974310066, guid: 342948a23fca1424e9e2d356a044b588, type: 3}
   isRightTriggerPressed: 0
   isReflecting: 0
