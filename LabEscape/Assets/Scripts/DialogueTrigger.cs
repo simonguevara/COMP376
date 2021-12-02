@@ -23,7 +23,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        triggerDialogue();
+         if (collision.gameObject.name == "Sam Player")
+        {
+            triggerDialogue();
+        }
     }
 
 

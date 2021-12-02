@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
-    private ArrayList enimies = new ArrayList();
+    private ArrayList enemies = new ArrayList();
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enimies.Count == 0)
+        if (enemies.Count == 0)
         {
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -32,7 +32,7 @@ public class RoomManager : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            enimies.Add(col);
+            enemies.Add(col);
         }
         else if (col.tag == "Player")
         {
@@ -48,7 +48,7 @@ public class RoomManager : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
-            enimies.Remove(col);
+            enemies.Remove(col);
         }
     }
 }
