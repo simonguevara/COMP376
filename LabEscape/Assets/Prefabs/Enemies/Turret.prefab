@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 232812614438953624}
   - component: {fileID: -7836517329965802415}
   - component: {fileID: 597686812}
+  - component: {fileID: 5414727804015117528}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Enemy
@@ -187,3 +188,22 @@ MonoBehaviour:
   healthPackDropChance: 15
   healthPoints: 3
   isStunned: 0
+--- !u!95 &5414727804015117528
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420168627054550528}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
