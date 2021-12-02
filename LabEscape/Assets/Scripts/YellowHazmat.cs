@@ -13,12 +13,17 @@ public class YellowHazmat : MonoBehaviour
 
     private EnemyScript enemyScript;
 
+    private Vector3 originalPosition;
+    float teleportDelay = 4f;
+    float _teleportDelay = 0f;
+
     void Start()
     {
         yellowHazmatRigidBody2D = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player");
         animator = GetComponent<Animator>();
         enemyScript = GetComponent<EnemyScript>();
+        originalPosition = transform.position;
     }
 
     void Update()
@@ -60,9 +65,29 @@ public class YellowHazmat : MonoBehaviour
         }
         else
         {
-            yellowHazmatRigidBody2D.velocity = Vector2.zero;
-            transform.GetChild(0).gameObject.SetActive(false);
-            SetAnimatorToIdle();
+            //------sheri xd----------
+            //make enemy walk back to its original position so it doesnt stand near a wall or som
+            if (Mathf.Approximately((originalPosition - transform.position).magnitude, 0))
+            {
+                yellowHazmatRigidBody2D.velocity = Vector2.zero;
+                transform.GetChild(0).gameObject.SetActive(false);
+                SetAnimatorToIdle();
+            }
+            else
+            {
+                //walk back to original spot
+                transform.position = Vector3.MoveTowards(transform.position, originalPosition, followSpeed * 0.33f * Time.deltaTime);
+                if (yellowHazmatRigidBody2D.IsSleeping())//if enemy is stuck somewhere, teleport after 4 seconds:
+                {
+                    _teleportDelay += Time.deltaTime;
+                    if (_teleportDelay >= teleportDelay)
+                        transform.position = originalPosition;  //teleport if stuck 
+                }
+                else //if enemy is still moving, means not stuck, so no need to teleport xd
+                {
+                    _teleportDelay = 0f;
+                }
+            }
         }
 
     }
