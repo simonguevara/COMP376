@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPackPrefab: {fileID: 176923248758321110, guid: 6314db99585f2544fb419c2b7b27f85c, type: 3}
-  healthPackDropChance: 0
+  healthPackDropChance: 100
   healthPoints: 10
   isStunned: 0
 --- !u!114 &3636601196883718708
@@ -182,9 +182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b005dce21625c244794c560d59b79ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 2
+  fireRate: 0.5
   dmg: 1
-  followRange: 20
+  followRange: 40
   fireRange: 10
   speed: 3
   bulletPrefab: {fileID: 4931021673962147885, guid: a5207842321e0ad4aad2472b3f7ae86e, type: 3}

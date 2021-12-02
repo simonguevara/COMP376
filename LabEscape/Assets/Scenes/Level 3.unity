@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1200204908}
     m_Modifications:
+    - target: {fileID: -3070192479575400330, guid: e5c1327b7e197924cbb9332bf54aff0a, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 699551429836381968}
+    - target: {fileID: -3070192479575400330, guid: e5c1327b7e197924cbb9332bf54aff0a, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3070192479575400330, guid: e5c1327b7e197924cbb9332bf54aff0a, type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: You found the EMP, press 2 or LT to use
+      objectReference: {fileID: 0}
     - target: {fileID: 263371762351439008, guid: e5c1327b7e197924cbb9332bf54aff0a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -23931,6 +23943,11 @@ PrefabInstance:
 --- !u!224 &699551429836381967 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 699551429660574706, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+  m_PrefabInstance: {fileID: 699551429836381966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &699551429836381968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 150610989703047000, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
   m_PrefabInstance: {fileID: 699551429836381966}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6163411928786585088

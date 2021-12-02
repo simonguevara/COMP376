@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         playerScript = player.GetComponent<PlayerSam>();
         dialogueBox = GameObject.FindGameObjectWithTag("DialogueBox");
         dialogueManager = FindObjectOfType<DialogueManager>();
+        Time.timeScale = 1;
     }
 
     private void Update()

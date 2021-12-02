@@ -6,18 +6,23 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
-    public AudioSource TypeSound;
     public Text dialogueText;
     Queue<string> sentences;
+
+    private AudioSource audioSource;
+    public AudioClip typingClip;
+
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
-        //TypeSound = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void startDialogue(Dialogue dialogue){
         sentences.Clear();
+        Time.timeScale = 0;
+        audioSource.PlayOneShot(typingClip);
 
         foreach (string sentence in dialogue.sentences){
             sentences.Enqueue(sentence);
@@ -51,5 +56,6 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue(){
         GameObject dialogueBox = GameObject.Find("DialogBox");
         dialogueBox.SetActive(false);
+        Time.timeScale = 1;
     }
 }

@@ -12,6 +12,9 @@ public class EnemyScript : MonoBehaviour
 
     private SpriteRenderer sprite;
     private AudioSource audioSource;
+    private BoxCollider2D collider;
+
+    private Animator animator;
 
     public bool isStunned = false;
     // Start is called before the first frame update
@@ -19,6 +22,8 @@ public class EnemyScript : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        collider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,7 +32,7 @@ public class EnemyScript : MonoBehaviour
         if(healthPoints <= 0)
         {
             OnDeath();
-            Destroy(gameObject);
+            
         }
     }
 
@@ -61,10 +66,18 @@ public class EnemyScript : MonoBehaviour
     private void OnDeath()
     {
         float random = UnityEngine.Random.Range(0, 100);
-        if(random < healthPackDropChance)
+        Destroy(gameObject, 1f);
+        if (collider != null)
+            collider.enabled = false;
+
+        isStunned = true;
+
+        //Animator trigger
+
+        if (random < healthPackDropChance)
         {
             Instantiate(healthPackPrefab, transform.position, Quaternion.identity);
         }
-        //TO DO : On death stufff
+        
     }
 }

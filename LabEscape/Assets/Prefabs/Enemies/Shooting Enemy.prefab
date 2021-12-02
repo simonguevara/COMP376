@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPackPrefab: {fileID: 176923248758321110, guid: 6314db99585f2544fb419c2b7b27f85c, type: 3}
   healthPackDropChance: 0
-  healthPoints: 10
+  healthPoints: 5
   isStunned: 0
 --- !u!114 &3636601196883718708
 MonoBehaviour:
