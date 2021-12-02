@@ -12,7 +12,7 @@ public class ShootingEnemy : MonoBehaviour
     public float fireRange = 10.0f;
     private float distance;
     public float speed = 3.0f;
-    
+
     private Animator animator;
     private Rigidbody2D rigidbody;
 
@@ -44,25 +44,33 @@ public class ShootingEnemy : MonoBehaviour
         if (hit && hit.collider.tag == "Player")
         {
             seesPlayer = true;
+            if ((player.transform.position - transform.position).x < 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
 
-            if(distance >= fireRange && !enemyScript.isStunned)
+            if (distance >= fireRange && !enemyScript.isStunned)
             {
                 rigidbody.velocity = (player.transform.position - transform.position).normalized * speed;
-                
+
 
                 if (Mathf.Abs(rigidbody.velocity.x) > Mathf.Abs(rigidbody.velocity.y))
                 {
                     if (rigidbody.velocity.x < 0)
                     {
-                        gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                        gameObject.GetComponent<SpriteRenderer>().flipX = true;
                         SetAnimatorToIdle();
-                        animator.SetBool("isMovingLeft", true);
+                        animator.SetBool("isRunning", true);
                     }
                     else
                     {
-                        gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                        gameObject.GetComponent<SpriteRenderer>().flipX = false;
                         SetAnimatorToIdle();
-                        animator.SetBool("isMovingLeft", true);
+                        animator.SetBool("isRunning", true);
                     }
                 }
                 else
@@ -70,12 +78,12 @@ public class ShootingEnemy : MonoBehaviour
                     if (rigidbody.velocity.y < 0)
                     {
                         SetAnimatorToIdle();
-                        animator.SetBool("isMovingDown", true);
+                        animator.SetBool("isRunning", true);
                     }
                     else
                     {
                         SetAnimatorToIdle();
-                        animator.SetBool("isMovingUp", true);
+                        animator.SetBool("isRunning", true);
                     }
                 }
             }
@@ -90,6 +98,7 @@ public class ShootingEnemy : MonoBehaviour
     {
         if (!enemyScript.isStunned && distance <= fireRange && seesPlayer)
         {
+            animator.SetTrigger("isShooting");
             GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             newBullet.GetComponent<EnemyBullet>().setDamage(dmg);
             newBullet.GetComponent<EnemyBullet>().setDirection(player.transform.position - transform.position);
@@ -98,9 +107,7 @@ public class ShootingEnemy : MonoBehaviour
 
     private void SetAnimatorToIdle()
     {
-        animator.SetBool("isMovingLeft", false);
-        animator.SetBool("isMovingUp", false);
-        animator.SetBool("isMovingDown", false);
+        animator.SetBool("isRunning", false);
     }
 }
 

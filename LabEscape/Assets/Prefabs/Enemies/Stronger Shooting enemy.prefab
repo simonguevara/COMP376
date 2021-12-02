@@ -145,7 +145,7 @@ Animator:
   m_GameObject: {fileID: 69639634418736846}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 336ebf5813a4dc444ace7037b65ad3ad, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9606e7ee339abcf4f90ea425897096dc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPackPrefab: {fileID: 176923248758321110, guid: 6314db99585f2544fb419c2b7b27f85c, type: 3}
-  healthPackDropChance: 0.1
+  healthPackDropChance: 0
   healthPoints: 10
   isStunned: 0
 --- !u!114 &3636601196883718708
