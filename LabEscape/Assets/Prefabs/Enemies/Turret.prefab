@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec47313a1b5d8a4aa04be053013c930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireDelay: 0.75
   dmg: 1
   followRange: 20
   turretoffset: {fileID: 8737284812293911880}

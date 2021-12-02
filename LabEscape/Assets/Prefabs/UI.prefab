@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1815253137573335958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 2866103891110427909}
-  typingClip: {fileID: 0}
+  typingClip: {fileID: 8300000, guid: 1a62ed477a96ced449078cf9841ee962, type: 3}
 --- !u!82 &1467324796891870769
 AudioSource:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.55
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -821,11 +821,11 @@ RectTransform:
   m_Father: {fileID: 1815253137573335958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 354.5539, y: -38.066933}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -318.5539, y: 0}
   m_SizeDelta: {x: 637.1078, y: 54.1339}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &4562316520944563381
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -865,9 +865,10 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: New Text lets see whap happens if it gets very very long, still fine alright
+    can we make it biger then? It does row shift okay
 --- !u!1001 &2800335055736520076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -905,15 +906,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6072031232347438533, guid: 7ab9a834da44c4d4c9f64b9d59320960, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -56.000015
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072031232347438533, guid: 7ab9a834da44c4d4c9f64b9d59320960, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6072031232347438533, guid: 7ab9a834da44c4d4c9f64b9d59320960, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5984375
+      value: 1.0190039
       objectReference: {fileID: 0}
     - target: {fileID: 6072031232347438533, guid: 7ab9a834da44c4d4c9f64b9d59320960, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.7999878
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072031232347438533, guid: 7ab9a834da44c4d4c9f64b9d59320960, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6072031232781542556, guid: 7ab9a834da44c4d4c9f64b9d59320960, type: 3}
       propertyPath: m_AnchorMax.x
@@ -926,6 +935,10 @@ PrefabInstance:
     - target: {fileID: 6072031233115586296, guid: 7ab9a834da44c4d4c9f64b9d59320960, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072031233215742628, guid: 7ab9a834da44c4d4c9f64b9d59320960, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9875
       objectReference: {fileID: 0}
     - target: {fileID: 6072031233215742630, guid: 7ab9a834da44c4d4c9f64b9d59320960, type: 3}
       propertyPath: m_Value
@@ -1037,6 +1050,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 699551429660574706}
     m_Modifications:
+    - target: {fileID: 8411399338535750336, guid: 46aa975189f6c7949a52c56b062b8ce2, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8411399338535750338, guid: 46aa975189f6c7949a52c56b062b8ce2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1207,11 +1224,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8411399339664127395, guid: 46aa975189f6c7949a52c56b062b8ce2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -56.000015
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411399339664127395, guid: 46aa975189f6c7949a52c56b062b8ce2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8411399339664127395, guid: 46aa975189f6c7949a52c56b062b8ce2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5384961
+      value: 1.0192537
       objectReference: {fileID: 0}
     - target: {fileID: 8411399339664127395, guid: 46aa975189f6c7949a52c56b062b8ce2, type: 3}
       propertyPath: m_LocalScale.y
@@ -1223,7 +1244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8411399339664127395, guid: 46aa975189f6c7949a52c56b062b8ce2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.5999985
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8411399340098235641, guid: 46aa975189f6c7949a52c56b062b8ce2, type: 3}
       propertyPath: m_Color.g

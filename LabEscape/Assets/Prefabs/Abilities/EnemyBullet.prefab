@@ -103,9 +103,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &2130819886013122816
 CircleCollider2D:
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
-  speed: 5
+  speed: 6
   damage: 1
   playerBulletPrefab: {fileID: 244928184974310066, guid: 342948a23fca1424e9e2d356a044b588, type: 3}
 --- !u!95 &5990640722667638318

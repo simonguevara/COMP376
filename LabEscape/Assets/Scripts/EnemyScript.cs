@@ -17,6 +17,9 @@ public class EnemyScript : MonoBehaviour
     private Animator animator;
 
     public bool isStunned = false;
+
+    private bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +32,10 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthPoints <= 0)
+        if (healthPoints <= 0 && !isDead)
         {
+            isDead = true;
             OnDeath();
-
         }
     }
 
@@ -65,7 +68,7 @@ public class EnemyScript : MonoBehaviour
 
     private void OnDeath()
     {
-        float random = UnityEngine.Random.Range(0, 100);
+        animator.SetTrigger("isDying");
         Destroy(gameObject, 1f);
         if (rb != null)
             rb.simulated = false;
@@ -73,11 +76,18 @@ public class EnemyScript : MonoBehaviour
         isStunned = true;
 
         //Animator trigger
+        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+        Invoke("DropHealthPack", 0.9f);
+    }
 
+    private void DropHealthPack()
+    {
+        float random = UnityEngine.Random.Range(0, 100);
+        Debug.Log("Random :" + random);
         if (random < healthPackDropChance)
         {
             Instantiate(healthPackPrefab, transform.position, Quaternion.identity);
         }
-
     }
+
 }

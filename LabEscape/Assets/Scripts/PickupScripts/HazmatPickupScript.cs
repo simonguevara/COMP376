@@ -12,7 +12,7 @@ public class HazmatPickupScript : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<PlayerSam>().hasHazmat = true;
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isGadgetFound = true;
             //Do events
-            //sDestroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

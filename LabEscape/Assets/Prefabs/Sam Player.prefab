@@ -134,9 +134,9 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &3267353168288222897
 Animator:
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f6c357d7d4d2e47a2e4c525472e79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 3
+  playerSpeed: 5
   controllerDeadzone: 0.1
   isController: 0
   dialogueBox: {fileID: 0}
@@ -198,36 +198,36 @@ MonoBehaviour:
   healClip: {fileID: 8300000, guid: df7a549978dea0a4c9dea420dd9b87d0, type: 3}
   teleportClip: {fileID: 8300000, guid: 1801bb8b9f15b274d8f0594e16a61a6f, type: 3}
   kDamagePushForce: 2
-  hasBoots: 1
-  hasShield: 1
+  hasBoots: 0
+  hasShield: 0
   hasGun: 1
-  hasHazmat: 1
-  hasEMP: 1
-  hasRecall: 1
-  hasPortalGun: 1
+  hasHazmat: 0
+  hasEMP: 0
+  hasRecall: 0
+  hasPortalGun: 0
   maxEnergy: 10
   energy: 10
-  regenTimeStep: 1
+  regenTimeStep: 2
   regenAmount: 1
   dashTime: 0.3
   dashDistance: 3.5
   dashCost: 1
-  shootDelay: 0.5
+  shootDelay: 0.3
   bulletPrefab: {fileID: 244928184974310066, guid: 342948a23fca1424e9e2d356a044b588, type: 3}
   isRightTriggerPressed: 0
   isReflecting: 0
   shieldEnergyCost: 3
-  shieldDuration: 1.5
+  shieldDuration: 4
   shieldPrefab: {fileID: 1603192055441278049, guid: 49d75dbc3940b684dab83f5e8eca3222, type: 3}
   isEMPCD: 0
   EMPEnergyCost: 3
   EMPPrefab: {fileID: 7440714951494119661, guid: ce0256b9ebde0bf47a4489dba37db2ea, type: 3}
   isLeftTriggerPressed: 0
   isRecalling: 0
-  recallEnergyCost: 6
+  recallEnergyCost: 10
   imagePrefab: {fileID: 1277091446717238726, guid: 80dd2bc24dff20341a65e705d1c888ed, type: 3}
-  numberOfImages: 6
-  imageInterval: 0.5
+  numberOfImages: 50
+  imageInterval: 0.1
   redPortalProjectilePrefab: {fileID: 3092730393580351866, guid: 3f89d545675c7e54c85ae4983ca7b98b, type: 3}
   bluePortalProjectilePrefab: {fileID: 2588248072923912692, guid: 173ed7719b42de3438682a9c735be50c, type: 3}
   portalEnergyCost: 1
@@ -256,8 +256,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: MKB
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

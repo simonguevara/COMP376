@@ -244,7 +244,7 @@ public class PlayerSam : MonoBehaviour
             Debug.Log("LT:" + playerControls.Controls.EMP.triggered);
 
 
-            if (playerControls.Controls.Shoot.triggered && !isShootOnCD && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
+            if (playerControls.Controls.Shoot.ReadValue<float>() >= 0.9f && !isShootOnCD && (Math.Abs(aim.x) >= controllerDeadzone || Math.Abs(aim.y) >= controllerDeadzone))
             {
                 Debug.Log("Pew pew!");
                 shoot();
