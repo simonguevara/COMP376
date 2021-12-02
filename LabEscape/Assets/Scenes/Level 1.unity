@@ -22555,7 +22555,6 @@ Transform:
 --- !u!1 &1677827423
 GameObject:
   m_ObjectHideFlags: 0
-<<<<<<< Updated upstream
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -22638,8 +22637,6 @@ Transform:
 --- !u!1001 &1693397514
 PrefabInstance:
   m_ObjectHideFlags: 0
-=======
->>>>>>> Stashed changes
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
