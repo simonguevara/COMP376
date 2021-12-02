@@ -23582,14 +23582,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1200204908}
     m_Modifications:
-    - target: {fileID: 150610989703047000, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
-      propertyPath: m_TagString
-      value: DialogueBox
-      objectReference: {fileID: 0}
-    - target: {fileID: 699551429281011986, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
-      propertyPath: playerHealth
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 699551429660574706, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -23678,11 +23670,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 699551430479958091, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 2748905381967958794, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 699551430479958091, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+    - target: {fileID: 2748905381969148511, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257624628866498633, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257624628867426588, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
