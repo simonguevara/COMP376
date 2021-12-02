@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public void loadNextLevel()
     {
-        if(isGadgetFound)
+        if (isGadgetFound)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         else
         {
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //Check if player is dead
-        if(playerScript.health <= 0)
+        if (playerScript.health <= 0)
         {
             int curretnSceneIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(curretnSceneIndex, LoadSceneMode.Single);
