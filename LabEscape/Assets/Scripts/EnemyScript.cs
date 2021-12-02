@@ -32,7 +32,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthPoints <= 0 && !isDead) 
+        if (healthPoints <= 0 && !isDead)
         {
             isDead = true;
             OnDeath();
@@ -68,7 +68,7 @@ public class EnemyScript : MonoBehaviour
 
     private void OnDeath()
     {
-        
+        animator.SetTrigger("isDying");
         Destroy(gameObject, 1f);
         if (rb != null)
             rb.simulated = false;

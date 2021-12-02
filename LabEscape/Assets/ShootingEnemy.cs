@@ -92,6 +92,9 @@ public class ShootingEnemy : MonoBehaviour
         {
             seesPlayer = false;
         }
+
+
+        transform.GetChild(0).gameObject.SetActive(seesPlayer);
     }
 
     private void Fire()
