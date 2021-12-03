@@ -154,10 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b005dce21625c244794c560d59b79ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
+  fireRate: 1
   dmg: 1
   followRange: 20
-  fireRange: 5
+  fireRange: 8
   speed: 3
   bulletPrefab: {fileID: 8411430652445821412, guid: 410b593095fbc954cb9d56c19c3fac4f, type: 3}
 --- !u!95 &267236263753825875
