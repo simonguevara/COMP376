@@ -97,6 +97,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e64ce9f-0af1-416e-aebd-9982a72c2e21"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -363,6 +371,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Scroll Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b11b2a6b-fba7-4404-a4d2-384401e1e8eb"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -403,6 +422,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Controls_RedPortal = m_Controls.FindAction("RedPortal", throwIfNotFound: true);
         m_Controls_BluePortal = m_Controls.FindAction("BluePortal", throwIfNotFound: true);
         m_Controls_ScrollDown = m_Controls.FindAction("Scroll Down", throwIfNotFound: true);
+        m_Controls_Pause = m_Controls.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -462,6 +482,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Controls_RedPortal;
     private readonly InputAction m_Controls_BluePortal;
     private readonly InputAction m_Controls_ScrollDown;
+    private readonly InputAction m_Controls_Pause;
     public struct ControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -476,6 +497,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @RedPortal => m_Wrapper.m_Controls_RedPortal;
         public InputAction @BluePortal => m_Wrapper.m_Controls_BluePortal;
         public InputAction @ScrollDown => m_Wrapper.m_Controls_ScrollDown;
+        public InputAction @Pause => m_Wrapper.m_Controls_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -515,6 +537,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ScrollDown.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnScrollDown;
                 @ScrollDown.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnScrollDown;
                 @ScrollDown.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnScrollDown;
+                @Pause.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -549,6 +574,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ScrollDown.started += instance.OnScrollDown;
                 @ScrollDown.performed += instance.OnScrollDown;
                 @ScrollDown.canceled += instance.OnScrollDown;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -583,5 +611,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRedPortal(InputAction.CallbackContext context);
         void OnBluePortal(InputAction.CallbackContext context);
         void OnScrollDown(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

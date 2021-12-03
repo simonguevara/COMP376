@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien
       objectReference: {fileID: 0}
+    - target: {fileID: 5909446977197479370, guid: 25fedd330fb0b5445bfe0ae3a92d7573, type: 3}
+      propertyPath: fireRate
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25fedd330fb0b5445bfe0ae3a92d7573, type: 3}
 --- !u!1 &490001384
