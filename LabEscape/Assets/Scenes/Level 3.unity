@@ -33378,7 +33378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 150610989703047000, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 699551429660574706, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_Pivot.x
@@ -33484,6 +33484,14 @@ PrefabInstance:
     - target: {fileID: 2866103891110427909, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866103891110427909, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866103891110427909, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4956352062590873756, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_Enabled

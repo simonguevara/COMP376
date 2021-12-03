@@ -53312,7 +53312,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 150610989703047000, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 150610989703047000, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_TagString
@@ -53440,8 +53440,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2866103891110427909, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_Text
-      value: I've made it past the first floor...I have 5 more to go. I should find
-        the Shield somewhere here.
+      value: I've made it past the first floor. I have 5 more to go. I should find
+        the Shield here.
       objectReference: {fileID: 0}
     - target: {fileID: 8257624628866498633, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_AnchorMax.y

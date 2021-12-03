@@ -89320,6 +89320,14 @@ PrefabInstance:
       value: "These radioactive people are giving me a headache...I should find a
         suit on this floor. This is the robotics floor if I'm not mistaken....\uFEFF"
       objectReference: {fileID: 0}
+    - target: {fileID: 2866103891110427909, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866103891110427909, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 8257624628866498633, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
