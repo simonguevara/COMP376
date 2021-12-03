@@ -27,6 +27,15 @@ public class GameManager : MonoBehaviour
             //Display message saying that gadget is not found or something
         }
     }
+    public void loadLevel(int level)
+    {
+        if (isGadgetFound)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        else
+        {
+            //Display message saying that gadget is not found or something
+        }
+    }
 
     private void Start()
     {
