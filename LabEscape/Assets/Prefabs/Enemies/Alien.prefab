@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b005dce21625c244794c560d59b79ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireRate: 3
   dmg: 1
   followRange: 20
   fireRange: 8
