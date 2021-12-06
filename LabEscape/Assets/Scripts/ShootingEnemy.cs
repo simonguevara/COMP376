@@ -103,8 +103,11 @@ public class ShootingEnemy : MonoBehaviour
         {
             animator.SetTrigger("isShooting");
             GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            newBullet.GetComponent<EnemyBullet>().setDamage(dmg);
-            newBullet.GetComponent<EnemyBullet>().setDirection(player.transform.position - transform.position);
+            if (dmg != 0)
+            {
+                newBullet.GetComponent<EnemyBullet>().setDamage(dmg);
+                newBullet.GetComponent<EnemyBullet>().setDirection(player.transform.position - transform.position);
+            }
         }
     }
 

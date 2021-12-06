@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 3
-  dmg: 1
+  dmg: 0
   followRange: 20
   fireRange: 8
   speed: 3
