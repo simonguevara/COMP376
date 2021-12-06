@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
             secondsStr = Mathf.RoundToInt(seconds).ToString();
         }
 
-        levelTimerText.text = "Current Level Time: "+ minustesStr + " : " + secondsStr;
+        levelTimerText.text = "Current Level Time: " + minustesStr + " : " + secondsStr;
     }
 
     public void findGadget()

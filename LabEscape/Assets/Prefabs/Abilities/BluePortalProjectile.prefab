@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
-  speed: 5
+  speed: 10
   isRed: 1
   redPortalPrefab: {fileID: 7221040959225816058, guid: cfb1d62cf956b4c4984f96ef14caa015, type: 3}
   bluePortalPrefab: {fileID: 7332437960093745075, guid: ab9032adf717f4544b7032f06218b08e, type: 3}
