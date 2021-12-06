@@ -16,9 +16,13 @@ public class AlienAttack : MonoBehaviour
     [SerializeField] GameObject explodeAnimation;
     [SerializeField] GameObject aoeIndicator;
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip explosionSoundClip;
+
     GameObject player;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectsWithTag("Player")[0];
     }
 
@@ -43,6 +47,7 @@ public class AlienAttack : MonoBehaviour
             //about to explode, so disable light and indicator for a more responsive effect
             if (_explodeDelay + 0.5f >= explodeDelay)
             {
+                audioSource.PlayOneShot(explosionSoundClip);
                 //light.SetActive(false);
                 aoeIndicator.SetActive(false);
             }
