@@ -109714,7 +109714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2866103891110427909, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_Text
-      value: This is it...I should be at the last floor. It's all or nothing.
+      value: This is it...I should be on the last floor. It's all or nothing.
       objectReference: {fileID: 0}
     - target: {fileID: 2866103891110427909, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_Enabled
