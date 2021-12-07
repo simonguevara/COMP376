@@ -552,11 +552,16 @@ public class PlayerSam : MonoBehaviour
             currentAnimationIndex = (currentAnimationIndex - 1) % numberOfImages;
             if (currentAnimationIndex < 0)
                 currentAnimationIndex += numberOfImages;
+
+            int nextAnimationIndex = (currentAnimationIndex - 1) % numberOfImages;
+            if (nextAnimationIndex < 0)
+                nextAnimationIndex += numberOfImages;
+
             timeOnCurrentImage = 0f;
-            playerRigidBody2D.velocity = Vector2.zero;
+            playerRigidBody2D.velocity = (imagesArraySnapShot[nextAnimationIndex].transform.position-imagesArraySnapShot[currentAnimationIndex].transform.position)/timePerImage;
         }
 
-        transform.position = imagesArraySnapShot[currentAnimationIndex].transform.position;
+        //transform.position = imagesArraySnapShot[currentAnimationIndex].transform.position;
     }
 
     private void dashMovement()

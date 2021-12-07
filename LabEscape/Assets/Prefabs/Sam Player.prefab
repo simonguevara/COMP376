@@ -1072,7 +1072,7 @@ MonoBehaviour:
   hasPortalGun: 0
   maxEnergy: 12
   energy: 12
-  regenTimeStep: 2
+  regenTimeStep: 1.5
   regenAmount: 1
   dashTime: 0.3
   dashDistance: 3.5
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   EMPPrefab: {fileID: 7440714951494119661, guid: ce0256b9ebde0bf47a4489dba37db2ea, type: 3}
   isLeftTriggerPressed: 0
   isRecalling: 0
-  recallEnergyCost: 10
+  recallEnergyCost: 6
   imagePrefab: {fileID: 1277091446717238726, guid: 80dd2bc24dff20341a65e705d1c888ed, type: 3}
   numberOfImages: 50
   imageInterval: 0.1

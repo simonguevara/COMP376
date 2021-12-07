@@ -1,3 +1,6 @@
+Submission file too large with the video, everything can be found at : 
+https://drive.google.com/drive/folders/1fBP80_dRsh722m1IGLh-TS0fC-w8tr62?usp=sharing
+
 COMP376
 
 Unity Package Requirements
@@ -37,3 +40,6 @@ Simon
 Kevin Ghannoum (40088808)
 Sheridan Perez
 Ahmed Haffoudah (40095428)
+
+
+
