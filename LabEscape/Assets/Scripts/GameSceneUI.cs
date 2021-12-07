@@ -9,7 +9,10 @@ public class GameSceneUI : MonoBehaviour
     public GameObject mainLayout;
 
     public GameObject levelSelectLayout;
-
+    public void toggleSpeedrunMode()
+    {
+        GameManager.speedrunMode = !GameManager.speedrunMode;
+    }
     public void StartGameBtn()
     {
         SceneManager.LoadScene("Level 1");
@@ -20,6 +23,13 @@ public class GameSceneUI : MonoBehaviour
         mainLayout.SetActive(false);
         levelSelectLayout.SetActive(true);
     }
+    public void backBtn()
+    {
+        mainLayout.SetActive(true);
+        levelSelectLayout.SetActive(false);
+    }
+
+
 
     public void startLevel1()
     {
@@ -44,5 +54,9 @@ public class GameSceneUI : MonoBehaviour
     public void startLevel6()
     {
         SceneManager.LoadScene("Level 6");
+    }
+
+    private void Update()
+    {
     }
 }
