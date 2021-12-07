@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static bool speedrunMode = false;
     public int level = 1;
     private GameObject player;
     private PlayerSam playerScript;

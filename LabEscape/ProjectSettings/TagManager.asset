@@ -12,6 +12,7 @@ TagManager:
   - Dialogue
   - GameManager
   - DialogueBox
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

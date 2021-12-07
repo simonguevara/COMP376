@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerSam : MonoBehaviour
 {
@@ -228,9 +228,54 @@ public class PlayerSam : MonoBehaviour
         }
     }
 
+    
+    bool isPaused = false;
+    public GameObject pauseMenu;
+
+    private void Start()
+    {
+        //pauseMenu = GameObject.FindGameObjectsWithTag("PauseMenu")[0];
+    }
+    public void quitLevel()
+    {
+        Time.timeScale = 1;
+        print("clicked quit btn");
+        isPaused = false;
+        pauseMenu.SetActive(false);
+        SceneManager.LoadScene("StartMenu");
+    }
+
+    public void cancelPause()
+    {
+        print("clicked cancel btn");
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        isPaused = false;
+    }
+
     private void checkInputs()
     {
         currentInputScheme = playerInput.currentControlScheme;
+        Debug.Log(isPaused);
+        if (playerControls.Controls.Pause.triggered && SceneManager.GetActiveScene().name.ToLower().Contains("level"))
+        {
+            if (!isPaused && Time.timeScale == 0) {
+                //means player is in dialogue box, ignore this input xD
+                return;
+            }
+            isPaused = !isPaused;
+            if (isPaused)
+            {
+                Time.timeScale = 0;
+                pauseMenu.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1;
+                pauseMenu.SetActive(false);
+            }
+        }
+
 
         movement = playerControls.Controls.Movement.ReadValue<Vector2>();
         aim = playerControls.Controls.Aim.ReadValue<Vector2>();
