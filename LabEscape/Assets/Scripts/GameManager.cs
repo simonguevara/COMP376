@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
         dialogueBox = GameObject.FindGameObjectWithTag("DialogueBox");
         dialogueManager = FindObjectOfType<DialogueManager>();
         Time.timeScale = 1;
+        if (level == 1)
+            totalTime = 0f;
 
         //For speedrun mode
         if (speedRunMode)

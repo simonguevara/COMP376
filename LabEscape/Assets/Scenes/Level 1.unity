@@ -24632,34 +24632,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3779131640022449002, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
-      propertyPath: hasEMP
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
-      propertyPath: hasBoots
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
-      propertyPath: hasHazmat
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
-      propertyPath: hasRecall
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
-      propertyPath: hasShield
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
-      propertyPath: hasPortalGun
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5022951006672850610, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
       propertyPath: m_Name
       value: Sam Player
@@ -24710,6 +24682,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+--- !u!114 &1693397515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1693397516, guid: 346322439b48a3344b69ad8bb8051c93, type: 3}
+  m_PrefabInstance: {fileID: 1693397514}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f6c357d7d4d2e47a2e4c525472e79b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1703269440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8622265692363675307, guid: 98ad37e954ea2eb48b90957956eaa5f1, type: 3}
