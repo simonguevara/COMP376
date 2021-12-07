@@ -33,7 +33,7 @@ public class FinalSceneManager : MonoBehaviour
         pointLight.SetActive(true);
         particles.SetActive(true);
         block.SetActive(true);
-         Invoke("EndCoroutine", 4f);
+         Invoke("EndCoroutine", 5f);
         foreach (string sentence in dialogue.sentences){
             sentences.Enqueue(sentence);
         }
