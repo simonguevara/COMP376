@@ -213,7 +213,7 @@ public class PlayerSam : MonoBehaviour
             if (oldestImageIndex < 0)
                 oldestImageIndex += numberOfImages;
         }
-        
+
     }
 
     private void energyRegen()
@@ -497,23 +497,26 @@ public class PlayerSam : MonoBehaviour
         }
     }
 
-    private void checkIfInDialogueZone(){
-        GameObject[]  DMs = GameObject.FindGameObjectsWithTag("Dialogue");
+    private void checkIfInDialogueZone()
+    {
+        GameObject[] DMs = GameObject.FindGameObjectsWithTag("Dialogue");
         float closest = 100f;
         DialogueTrigger close = DMs.Length > 0 ? DMs[0].GetComponent<DialogueTrigger>() : null;
         foreach (GameObject DM in DMs)
         {
-            if (Vector3.Distance(DM.transform.position, transform.position) < closest){
+            if (Vector3.Distance(DM.transform.position, transform.position) < closest)
+            {
                 close = DM.GetComponent<DialogueTrigger>();
                 closest = Vector3.Distance(DM.transform.position, transform.position);
             }
         }
-        if(close != null){
+        if (close != null)
+        {
             //dialogue already open
-          //  if(dialogueBox.activeSelf){
-           //     GameObject.Find("DialogueManager").GetComponent<DialogueManager>().DisplayNextSentence();
+            //  if(dialogueBox.activeSelf){
+            //     GameObject.Find("DialogueManager").GetComponent<DialogueManager>().DisplayNextSentence();
             //}
-            
+
             //GameObject dialogueBox = GameObject.Find("DialogBox");
             dialogueBox.SetActive(true);
             close.triggerDialogue();

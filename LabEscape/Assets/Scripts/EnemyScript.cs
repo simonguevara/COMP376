@@ -14,6 +14,9 @@ public class EnemyScript : MonoBehaviour
     private AudioSource audioSource;
     private Rigidbody2D rb;
 
+    [SerializeField]
+    private AudioClip dyingSoundClip;
+
     private Animator animator;
 
     public bool isStunned = false;
@@ -74,6 +77,7 @@ public class EnemyScript : MonoBehaviour
             rb.simulated = false;
 
         isStunned = true;
+        audioSource.PlayOneShot(dyingSoundClip);
 
         //Animator trigger
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);

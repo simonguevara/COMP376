@@ -3566,6 +3566,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &589962234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 653607503261548697, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+  m_PrefabInstance: {fileID: 699551429836381966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &598514134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22371,7 +22382,7 @@ GameObject:
   - component: {fileID: 1347041251}
   m_Layer: 0
   m_Name: Dialogues
-  m_TagString: Untagged
+  m_TagString: Dialogue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24064,6 +24075,17 @@ Transform:
   m_Father: {fileID: 1187272184}
   m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1568676522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1811494005874016479, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+  m_PrefabInstance: {fileID: 699551429836381966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1577655344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8622265692363675307, guid: 98ad37e954ea2eb48b90957956eaa5f1, type: 3}
@@ -32748,6 +32770,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 881982449}
     m_Modifications:
+    - target: {fileID: 5293872798048689503, guid: 273aecb7ce6f68442ba965fa4f1d690c, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1568676522}
+    - target: {fileID: 5293872798048689503, guid: 273aecb7ce6f68442ba965fa4f1d690c, type: 3}
+      propertyPath: levelTimerText
+      value: 
+      objectReference: {fileID: 589962234}
     - target: {fileID: 6238165759045149859, guid: 273aecb7ce6f68442ba965fa4f1d690c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -32814,14 +32844,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 881982449}
     m_Modifications:
-    - target: {fileID: 1059503049, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1693397515}
-    - target: {fileID: 1183215587, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1693397515}
+    - target: {fileID: 587105595416812903, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 653607503261548697, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_Color.b
+      value: 0.06808472
+      objectReference: {fileID: 0}
+    - target: {fileID: 653607503261548697, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8665856
+      objectReference: {fileID: 0}
+    - target: {fileID: 653607503261548697, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9622642
+      objectReference: {fileID: 0}
     - target: {fileID: 699551429660574706, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -32917,6 +32955,10 @@ PrefabInstance:
     - target: {fileID: 2748905381969148511, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424998708345643900, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8257624628866498633, guid: d70803ca3814bb94f8f8c89e424e2224, type: 3}
       propertyPath: m_AnchorMax.y
