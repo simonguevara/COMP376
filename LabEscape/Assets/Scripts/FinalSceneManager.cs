@@ -79,7 +79,7 @@ public class FinalSceneManager : MonoBehaviour
     public void EndCoroutine()
     {
             //yield on a new YieldInstruction that waits for 5 seconds.
-        //GameObject.FindWithTag("GameManager").GetComponent<GameManager>().speedRunMode = true;
+        GameManager.speedRunMode = true;
        // GameManager.speedrunMode = true;
         SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
     }

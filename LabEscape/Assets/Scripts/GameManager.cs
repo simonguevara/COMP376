@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public Dialogue pickupNotFoundDialogue;
 
     //For speedrun mode
-    private static bool speedRunMode = false;
+    public static bool speedRunMode = false;
 
     public static float totalTime = 0.0f;
     public float currentLvlTime = 0.0f;
