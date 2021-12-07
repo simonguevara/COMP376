@@ -12,6 +12,8 @@ TagManager:
   - Dialogue
   - GameManager
   - DialogueBox
+  - Pickup
+  - Timer
   layers:
   - Default
   - TransparentFX

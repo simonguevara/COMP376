@@ -13,7 +13,7 @@ public class HealthPickupScript : MonoBehaviour
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-            if(player.GetComponent<PlayerSam>().health <= player.GetComponent<PlayerSam>().maxHealth)
+            if(player.GetComponent<PlayerSam>().health < player.GetComponent<PlayerSam>().maxHealth)
             {
                 player.GetComponent<PlayerSam>().heal(healValue);
                 if (player.GetComponent<PlayerSam>().health > player.GetComponent<PlayerSam>().maxHealth)

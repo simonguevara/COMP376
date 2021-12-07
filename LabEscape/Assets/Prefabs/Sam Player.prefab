@@ -291,7 +291,7 @@ MonoBehaviour:
   maxEnergy: 12
   energy: 12
   regenTimeStep: 2
-  regenAmount: 2
+  regenAmount: 1
   dashTime: 0.3
   dashDistance: 3.5
   dashCost: 1
@@ -299,7 +299,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 244928184974310066, guid: 342948a23fca1424e9e2d356a044b588, type: 3}
   isRightTriggerPressed: 0
   isReflecting: 0
-  shieldEnergyCost: 3
+  shieldEnergyCost: 4
   shieldDuration: 4
   shieldPrefab: {fileID: 1603192055441278049, guid: 49d75dbc3940b684dab83f5e8eca3222, type: 3}
   isEMPCD: 0
