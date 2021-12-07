@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool speedrunMode = false;
     public int level = 1;
     private GameObject player;
     private PlayerSam playerScript;
@@ -21,7 +20,7 @@ public class GameManager : MonoBehaviour
     public Dialogue pickupNotFoundDialogue;
 
     //For speedrun mode
-    private static bool speedRunMode = false;
+    public static bool speedRunMode = false;
 
     public static float totalTime = 0.0f;
     public float currentLvlTime = 0.0f;
@@ -55,6 +54,8 @@ public class GameManager : MonoBehaviour
         dialogueBox = GameObject.FindGameObjectWithTag("DialogueBox");
         dialogueManager = FindObjectOfType<DialogueManager>();
         Time.timeScale = 1;
+        if (level == 1)
+            totalTime = 0f;
 
         //For speedrun mode
         if (speedRunMode)

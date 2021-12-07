@@ -11,7 +11,7 @@ public class GameSceneUI : MonoBehaviour
     public GameObject levelSelectLayout;
     public void toggleSpeedrunMode()
     {
-        GameManager.speedrunMode = !GameManager.speedrunMode;
+        GameManager.speedRunMode = !GameManager.speedRunMode;
     }
     public void StartGameBtn()
     {
