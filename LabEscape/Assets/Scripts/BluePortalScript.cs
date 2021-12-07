@@ -12,7 +12,7 @@ public class BluePortalScript : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(teleportClip);
+        //audioSource.PlayOneShot(teleportClip);
     }
 
 

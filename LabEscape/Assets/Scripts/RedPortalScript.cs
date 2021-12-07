@@ -11,7 +11,7 @@ public class RedPortalScript : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(teleportClip);
+        //audioSource.PlayOneShot(teleportClip);
     }
 
     void OnTriggerEnter2D(Collider2D col)
