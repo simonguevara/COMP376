@@ -1,5 +1,8 @@
 # COMP376
 
+#Play Online
+https://simonstired.itch.io/lab-escape
+
 ## Unity Package Requirements
 - Input System v1.0.2
 - Universal RP v10.6.0
