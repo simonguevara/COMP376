@@ -1,6 +1,6 @@
 # COMP376
 
-#Play Online
+# Play Online
 https://simonstired.itch.io/lab-escape
 
 ## Unity Package Requirements
