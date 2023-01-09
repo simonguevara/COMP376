@@ -35,8 +35,8 @@ End of the game cutscene/dialog\
 Presented by : \
 Blue Tree (TEAM 18)
 
+Simon Guevara-Ponce\
 Samuel Tardif (40051573)\
-Simon\
 Kevin Ghannoum (40088808)\
 Sheridan Perez\
 Ahmed Haffoudah (40095428)\
